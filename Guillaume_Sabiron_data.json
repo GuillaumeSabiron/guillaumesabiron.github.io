@@ -1,0 +1,993 @@
+{
+  "papers": [
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Experimental validation of a nonlinear MPC strategy for a wave energy converter prototype",
+        "pub_year": 2016,
+        "citation": "International conference on offshore mechanics and arctic engineering 49972 …, 2016",
+        "author": "Hoai-Nam Nguyen and Guillaume Sabiron and Paolino Tona and Morten Mejlhede Kramer and Enrique Vidal Sanchez",
+        "conference": "International conference on offshore mechanics and arctic engineering",
+        "volume": "49972",
+        "pages": "V006T09A019",
+        "publisher": "American Society of Mechanical Engineers",
+        "abstract": "One of the major limitations to the development of advanced wave energy converters (WECs) control strategies are the associated computational costs. For instance, model predictive control (MPC) strategies have the potential to obtain almost optimal performance, provided that the imperfect power conversion in the power take-off (PTO) system is correctly taken into account in the optimization criterion and that the incoming wave force can be estimated and forecast. However, demanding computational requirements as well as the unresolved issue of wave force estimation have so far prevented real-time implementation and validation of such MPC strategies. In this paper, we present the successful experimental results obtained on a scaled-down prototype of the well-known Wavestar machine. Performance comparisons are provided for nonlinear MPC versus a reference PI controller."
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:YsMSGLbcyi4C",
+      "num_citations": 51,
+      "citedby_url": "/scholar?hl=en&cites=8141689120176664761",
+      "cites_id": [
+        "8141689120176664761"
+      ],
+      "pub_url": "https://asmedigitalcollection.asme.org/OMAE/proceedings-abstract/OMAE2016/V006T09A019/281245",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:ufDKRx4X_XAJ:scholar.google.com/",
+      "cites_per_year": {
+        "2017": 6,
+        "2018": 6,
+        "2019": 8,
+        "2020": 8,
+        "2021": 7,
+        "2022": 3,
+        "2023": 9,
+        "2024": 4
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "An efficiency-aware model predictive control strategy for a heaving buoy wave energy converter",
+        "pub_year": 2015,
+        "citation": "11th European wave and tidal energy conference-EWTEC 2015, 2015",
+        "author": "Paolino Tona and Hoai-Nam Nguyen and Guillaume Sabiron and Yann Creff",
+        "conference": "11th European wave and tidal energy conference-EWTEC 2015",
+        "abstract": "In this paper we consider wave energy converters (WECs) of the heaving buoy type. We assume that the available power takeoff (PTO) mechanism is able to transform mechanical to electrical power (generator mode) and electrical to mechanical power (motor mode). In this context, a control system can be designed so as to take off as much energy as possible from the waves to the network, for a broad range of sea states. Among the implementable strategies surveyed in the literature, model predictive control (MPC) has the potential to lead to almost optimal performance, because of its ability to deal with many design objectives and performance criteria and to handle constraints on states and control inputs. However, a critical factor is often overlooked in the design and validation of MPC (as well as of most other WEC control strategies): the imperfect power conversion in the PTO. The MPC strategy presented here does take it into account, in the form of a conversion efficiency function in the criterion to be minimised. First, an optimal control problem is formulated and solved offline, which maximises the average net power output of the wave energy converter. Its performance is tested on five scenarios corresponding to different sea states and compared to that of a conventional control, based on proportional–integral (PI) velocity feedback. Then a nonlinear MPC strategy is introduced and its performance is tested on the same scenarios. It is shown that it yields roughly the same results as the optimal control, and can help harvesting up to 50% more energy than the reference PI control."
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:W7OEmFMy1HYC",
+      "num_citations": 28,
+      "citedby_url": "/scholar?hl=en&cites=4845344344939488895",
+      "cites_id": [
+        "4845344344939488895"
+      ],
+      "pub_url": "https://ifp.hal.science/hal-01443855/",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:f-aQjgIfPkMJ:scholar.google.com/",
+      "cites_per_year": {
+        "2016": 2,
+        "2017": 6,
+        "2018": 2,
+        "2019": 2,
+        "2020": 6,
+        "2021": 1,
+        "2022": 4,
+        "2023": 3,
+        "2024": 2
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Low-speed optic-flow sensor onboard an unmanned helicopter flying outside over fields",
+        "pub_year": 2013,
+        "citation": "2013 IEEE International Conference on Robotics and Automation, 1742-1749, 2013",
+        "author": "Guillaume Sabiron and Paul Chavent and Thibaut Raharijaona and Patrick Fabiani and Franck Ruffier",
+        "conference": "2013 IEEE International Conference on Robotics and Automation",
+        "pages": "1742-1749",
+        "publisher": "IEEE",
+        "abstract": "The 6-pixel low-speed Visual Motion Sensor (VMS) inspired by insects' visual systems presented here performs local 1-D angular speed measurements ranging from 1.5°/s to 25°/s and weighs only 2.8 g. The entire optic flow processing system, including the spatial and temporal filtering stages, has been updated with respect to the original design. This new lightweight sensor was tested under free-flying outdoor conditions over various fields onboard a 80 kg unmanned helicopter called ReSSAC. The visual disturbances encountered included helicopter vibrations, uncontrolled illuminance, trees, roads, and houses. The optic flow measurements obtained were finely analyzed online and also offline, using the sensors of various kinds mounted onboard ReSSAC. The results show that the optic flow measured despite the complex disturbances encountered closely matched the approximate ground-truth optic flow."
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:u5HHmVD_uO8C",
+      "num_citations": 23,
+      "citedby_url": "/scholar?hl=en&cites=11311979728150062337",
+      "cites_id": [
+        "11311979728150062337"
+      ],
+      "pub_url": "https://ieeexplore.ieee.org/abstract/document/6630806/",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:AeXNGqE5_JwJ:scholar.google.com/",
+      "cites_per_year": {
+        "2012": 1,
+        "2013": 1,
+        "2014": 5,
+        "2015": 3,
+        "2016": 5,
+        "2017": 4,
+        "2018": 1,
+        "2019": 1,
+        "2020": 0,
+        "2021": 1,
+        "2022": 0,
+        "2023": 1
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Two-directional 1-g visual motion sensor inspired by the fly's eye",
+        "pub_year": 2012,
+        "citation": "IEEE Sensors Journal 13 (3), 1025-1035, 2012",
+        "author": "Frédéric L Roubieu and Fabien Expert and Guillaume Sabiron and Franck Ruffier",
+        "journal": "IEEE Sensors Journal",
+        "volume": "13",
+        "number": "3",
+        "pages": "1025-1035",
+        "publisher": "IEEE",
+        "abstract": "Optic flow-based autopilots for Micro-Aerial Vehicles (MAVs) need lightweight, low-power sensors to be able to fly safely through unknown environments. The new tiny 6-pixel visual motion sensor presented here meets these demanding requirements in terms of its mass, size, and power consumption. This 1-gram, low-power, fly-inspired sensor accurately gauges the visual motion using only this 6-pixel array with two different panoramas and illuminance conditions. The new visual motion sensor's output results from a smart combination of the information collected by several 2-pixel Local Motion Sensors (LMSs), on the basis of the “time of travel” scheme originally inspired by the common housefly's Elementary Motion Detector (EMD) neurons. The proposed sensory fusion method enables the new visual sensor to measure the visual angular speed and determine the main direction of the visual motion without any …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:d1gkVwhDpl0C",
+      "num_citations": 23,
+      "citedby_url": "/scholar?hl=en&cites=8045422288704955855",
+      "cites_id": [
+        "8045422288704955855"
+      ],
+      "pub_url": "https://ieeexplore.ieee.org/abstract/document/6365225/",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:z-VE8vEUp28J:scholar.google.com/",
+      "cites_per_year": {
+        "2013": 2,
+        "2014": 4,
+        "2015": 3,
+        "2016": 0,
+        "2017": 5,
+        "2018": 3,
+        "2019": 1,
+        "2020": 3,
+        "2021": 1,
+        "2022": 0,
+        "2023": 1
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "An energy-maximising MPC solution to the WEC control competition",
+        "pub_year": 2019,
+        "citation": "International Conference on Offshore Mechanics and Arctic Engineering 58899 …, 2019",
+        "author": "Paolino Tona and Guillaume Sabiron and Hoai-Nam Nguyen",
+        "conference": "International Conference on Offshore Mechanics and Arctic Engineering",
+        "volume": "58899",
+        "pages": "V010T09A034",
+        "publisher": "American Society of Mechanical Engineers",
+        "abstract": "The WEC Control Competition is a benchmark devised to compare energy-maximising controllers for wave energy converters, first in simulation, then in real time, using a scale device in a tank test situation. For the first round of the competition, the evaluators have provided a model of a leg of a Wavestar-like device, in the WEC-Sim simulation environment. The evaluation is based on an energy-related criterion computed on six irregular waves.IFPEN’s solution is an energy-maximising model predictive control (MPC), composed of an estimation algorithm for wave excitation force moment, using measurements (or estimations) of float displacement and velocity and PTO moment; an algorithm for short-term wave force prediction from present and past wave excitation force estimates, where no information about wave elevation is used; a real-time compatible MPC algorithm using wave force prediction, which …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:0EnyYjriUFMC",
+      "num_citations": 19,
+      "citedby_url": "/scholar?hl=en&cites=17285070693400090660",
+      "cites_id": [
+        "17285070693400090660"
+      ],
+      "pub_url": "https://asmedigitalcollection.asme.org/OMAE/proceedings-abstract/OMAE2019/V010T09A034/1068214",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:JJigJTfo4O8J:scholar.google.com/",
+      "cites_per_year": {
+        "2020": 4,
+        "2021": 3,
+        "2022": 4,
+        "2023": 4,
+        "2024": 4
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Data-driven fatigue-oriented MPC applied to wind turbines Individual Pitch Control",
+        "pub_year": 2021,
+        "citation": "Renewable Energy 170, 1008-1019, 2021",
+        "author": "David Collet and Mazen Alamir and Domenico Di Domenico and Guillaume Sabiron",
+        "journal": "Renewable Energy",
+        "volume": "170",
+        "pages": "1008-1019",
+        "publisher": "Pergamon",
+        "abstract": "Horizontal Axis Wind Turbine (HAWT) rotor is a system whose components are particularly exposed to fatigue damage, due to non-uniform winds and the rotating nature of the rotor. Individual Pitch Control (IPC) can help alleviating the fatigue loads on the rotor blades by rotating the blades independently from each other on their longitudinal axis. However, reducing the blades fatigue damage is often compensated by an increase in pitch activity, damaging the blade pitch actuators. An IPC regulator must thus optimize a trade-off between the fatigue damage of the blades and blade pitch actuators. This paper presents the derivation and implementation of a fatigue-oriented adaptive Model Predictive Control (MPC) IPC regulator using a data-driven fatigue-oriented cost function. This MPC allows to efficiently optimize the IPC fatigue trade-off and significantly reduce the expectancy of an HAWT rotor economic fatigue …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:kNdYIx-mwKoC",
+      "num_citations": 17,
+      "citedby_url": "/scholar?hl=en&cites=17147777476653281423",
+      "cites_id": [
+        "17147777476653281423"
+      ],
+      "pub_url": "https://www.sciencedirect.com/science/article/pii/S0960148121002202",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:j_BcH8Mk-e0J:scholar.google.com/",
+      "cites_per_year": {
+        "2021": 2,
+        "2022": 4,
+        "2023": 7,
+        "2024": 4
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Experimental assessment of the IFPEN solution to the WEC control competition",
+        "pub_year": 2020,
+        "citation": "International conference on offshore mechanics and arctic engineering 84416 …, 2020",
+        "author": "Paolino Tona and Guillaume Sabiron and Hoai-Nam Nguyen and Alexis Mérigaud and Caroline Ngo",
+        "conference": "International conference on offshore mechanics and arctic engineering",
+        "volume": "84416",
+        "pages": "V009T09A023",
+        "publisher": "American Society of Mechanical Engineers",
+        "abstract": "This paper describes the experimental assessment of the solution developed by IFP Energies nouvelles (IFPEN) for the WEC Control Competition (WECCCOMP), a benchmark devised to compare energy-maximizing controllers for wave energy converters (WECs). For the first round of the competition, carried out in simulation with WEC-Sim, IFPEN had submitted an MPC-based solution, which eventually scored best among the contestants, with respect to the energy-related criterion defined by the organizers and computed on a set of six irregular waves. For the second round of the competition, the performance of this MPC solution has been assessed in a tank test situation, on the same Wavestar-like scale device that had been simulated in WEC-Sim.The paper first recalls the features of the control solution implemented for the competition, an offline-tuned weighted-QP MPC algorithm using short-term …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:3fE2CSJIrl8C",
+      "num_citations": 11,
+      "citedby_url": "/scholar?hl=en&cites=8468897425939013926",
+      "cites_id": [
+        "8468897425939013926"
+      ],
+      "pub_url": "https://asmedigitalcollection.asme.org/OMAE/proceedings-abstract/OMAE2020/84416/1093070",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:JqFQuFaRh3UJ:scholar.google.com/",
+      "cites_per_year": {
+        "2020": 1,
+        "2021": 2,
+        "2022": 2,
+        "2023": 4,
+        "2024": 2
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Real-time three dimensional wind field reconstruction from nacelle LiDAR measurements",
+        "pub_year": 2018,
+        "citation": "Journal of Physics: Conference Series 1037 (3), 032037, 2018",
+        "author": "F Guillemin and H-N Nguyen and G Sabiron and D Di Domenico and M Boquet",
+        "journal": "Journal of Physics: Conference Series",
+        "volume": "1037",
+        "number": "3",
+        "pages": "032037",
+        "publisher": "IOP Publishing",
+        "abstract": "In recent years, Light Detection and Ranging (LiDAR) has emerged as a feasible, reliable and accurate remote sensing technology for wind speed measurements. For a fine and performant use of the LiDAR data in turbine control and monitoring applications, adapted and sophisticated real-time processing is needed. With the objective to retrieve accurate enhanced information from the sensor raw data, this paper aims to present solution to estimate, in three dimensions and in real time, incoming wind characteristics, such as wind speed, wind direction and instantaneous shears. An innovative reconstruction is proposed based on recursive weighted least squares method. The approach is validated for pulsed nacelle LiDAR systems with simulated data, obtained with a specifically developed wind generator tool, including a representative LiDAR Wind Iris TC model."
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:_FxGoFyzp5QC",
+      "num_citations": 11,
+      "citedby_url": "/scholar?hl=en&cites=18044180238659444416",
+      "cites_id": [
+        "18044180238659444416"
+      ],
+      "pub_url": "https://iopscience.iop.org/article/10.1088/1742-6596/1037/3/032037/meta",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:wF5rLFPOafoJ:scholar.google.com/",
+      "cites_per_year": {
+        "2019": 3,
+        "2020": 1,
+        "2021": 3,
+        "2022": 1,
+        "2023": 2,
+        "2024": 1
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Dominant wave frequency and amplitude estimation for adaptive control of wave energy converters",
+        "pub_year": 2017,
+        "citation": "OCEANS 2017-aberdeen, 1-6, 2017",
+        "author": "Hoai-Nam Nguyen and Paolino Tona and Guillaume Sabiron",
+        "conference": "OCEANS 2017-aberdeen",
+        "pages": "1-6",
+        "publisher": "IEEE",
+        "abstract": "Adaptive control is of great interest for wave energy converters (WEC) due to the inherent time-varying nature of sea conditions. Robust and accurate estimation algorithms are required to improve the knowledge of the current sea state on a wave-to-wave basis in order to ensure power harvesting as close as possible to optimal behavior. In this paper, we present a simple but innovative approach for estimating the wave force dominant frequency and wave force dominant amplitude based on the unscented Kalman filter. The main benefits of the proposed method are illustrated by a numerical example concerning a small-scale wave energy converter prototype, with data coming from experimental recordings obtained in a test basin with irregular waves."
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:eQOLeE2rZwMC",
+      "num_citations": 10,
+      "citedby_url": "/scholar?hl=en&cites=5917338857265245155",
+      "cites_id": [
+        "5917338857265245155"
+      ],
+      "pub_url": "https://ieeexplore.ieee.org/abstract/document/8084955/",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:4yvp2lacHlIJ:scholar.google.com/",
+      "cites_per_year": {
+        "2017": 1,
+        "2018": 1,
+        "2019": 1,
+        "2020": 2,
+        "2021": 1,
+        "2022": 2,
+        "2023": 2
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "A fatigue-oriented cost function for optimal individual pitch control of wind turbines",
+        "pub_year": 2020,
+        "citation": "IFAC-PapersOnLine 53 (2), 12632-12637, 2020",
+        "author": "David Collet and Mazen Alamir and Domenico Di Domenico and Guillaume Sabiron",
+        "journal": "IFAC-PapersOnLine",
+        "volume": "53",
+        "number": "2",
+        "pages": "12632-12637",
+        "publisher": "Elsevier",
+        "abstract": "In a context of wind power production growth, it is necessary to optimize the levelized cost of energy by maximizing the profit of operating wind turbines, which is defined as the difference between gains (e.g. energy sold) and losses (e.g. operation and maintenance cost). Operation and maintenance cost is intimately related to fatigue damage. However, considering fatigue directly in an optimization needs to be carefully done because its faithful model does not fit standard forms. In this paper, it is first shown that the variance of a signal and its corresponding damage using fatigue theory are nonlinearly related. Therefore, this relationship is used to design a convex cost function approximating fatigue. Preliminary tests suggest promising results regarding the relevance of this formulation in optimizing fatigue trade-off when compared to a family of quadratic cost functions. The proposed formulation allows to directly …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:Zph67rFs4hoC",
+      "num_citations": 9,
+      "citedby_url": "/scholar?hl=en&cites=13907167683415985307",
+      "cites_id": [
+        "13907167683415985307"
+      ],
+      "pub_url": "https://www.sciencedirect.com/science/article/pii/S2405896320324484",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:m0zNIVMvAMEJ:scholar.google.com/",
+      "cites_per_year": {
+        "2020": 2,
+        "2021": 2,
+        "2022": 3,
+        "2023": 0,
+        "2024": 1
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Pollutant emissions estimation framework for real-driving emissions at microscopic scale and environmental footprint calculation",
+        "pub_year": 2018,
+        "citation": "2018 IEEE Intelligent Vehicles Symposium (IV), 381-388, 2018",
+        "author": "Guillaume Sabiron and Laurent Thibault and Philippe Degeilh and Gilles Corde",
+        "conference": "2018 IEEE Intelligent Vehicles Symposium (IV)",
+        "pages": "381-388",
+        "publisher": "IEEE",
+        "abstract": "Nowadays, health related issues of local pollutant emissions due to transport is becoming a major concern in our modern society. Exhaust emissions level for various gases are strongly related to the driving behavior of the user. It is of public knowledge that vehicle approval regulation techniques do not reflect actual emissions on everyday trips due, for instance, to the very smooth velocity profile considered. Available means of measuring the actual environmental footprint of a vehicle exist and are called Portable Emissions Measurement Systems (PEMS). However these sensors are usually bulky and too expensive for large scale campaigns. We propose a novel solution to monitor users environmental footprint using only a smartphone device with no additional sensors. The proposed solution is able to provide individualized feedback depending on vehicle characteristics, driving style and trips topology. The …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:qxL8FJ1GzNcC",
+      "num_citations": 9,
+      "citedby_url": "/scholar?hl=en&cites=14316554138274226994",
+      "cites_id": [
+        "14316554138274226994"
+      ],
+      "pub_url": "https://ieeexplore.ieee.org/abstract/document/8500435/",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:MuN76yKersYJ:scholar.google.com/",
+      "cites_per_year": {
+        "2018": 2,
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 1,
+        "2023": 3,
+        "2024": 3
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Real-time air pollution exposure and vehicle emissions estimation using IoT, GNSS measurements and web-based simulation models",
+        "pub_year": 2018,
+        "citation": "2018 IEEE 88th vehicular technology conference (VTC-Fall), 1-5, 2018",
+        "author": "Laurent Thibault and P Pognant-Gros and Philippe Degeilh and K Thanabalasingam and Guillaume Sabiron and Luc Voise",
+        "conference": "2018 IEEE 88th vehicular technology conference (VTC-Fall)",
+        "pages": "1-5",
+        "publisher": "IEEE",
+        "abstract": "Increasing urban air pollution level is one of the major concerns for citizens due to its impact on public health. In cities, vehicle emissions are one of the main contributors for nitrogen oxides (NOx) and particulate matter (PM) emissions. These emissions are not only related to the vehicle technology but also to the driving behavior of the user. For most people air pollution is barely noticeable and the driver's impact is still unknown. The contribution of this paper consists in using new information and communication technology to create an in vehicle-IoT device giving the driver a real-time feedback on his emissions and on his exposure during his trips. This is achieved by coupling complex simulation models deployed on distant servers and the existing smartphone GNSS sensor in order to get a low-cost solution, compliant with large-scale deployment. Air quality exposure is estimated using an atmospheric urban …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:M3ejUd6NZC8C",
+      "num_citations": 8,
+      "citedby_url": "/scholar?hl=en&cites=11865638072773664517",
+      "cites_id": [
+        "11865638072773664517"
+      ],
+      "pub_url": "https://ieeexplore.ieee.org/abstract/document/8690622/",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:BV8G2fU2q6QJ:scholar.google.com/",
+      "cites_per_year": {
+        "2021": 3,
+        "2022": 2,
+        "2023": 2,
+        "2024": 1
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "GNSS data-based approach to monitor real-world exhaust emissions at microscopic resolution",
+        "pub_year": 2017,
+        "citation": "22nd International Transport and Air Pollution Conference, 15-16, 2017",
+        "author": "L Thibault and P Dégeilh and G Sabiron and L Voise and K Thanabalasingam and G Corde",
+        "conference": "22nd International Transport and Air Pollution Conference",
+        "pages": "15-16"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:9ZlFYXVOiuMC",
+      "num_citations": 7,
+      "citedby_url": "/scholar?hl=en&cites=13943964455061821712",
+      "cites_id": [
+        "13943964455061821712"
+      ],
+      "pub_url": "https://scholar.google.com/scholar?cluster=13943964455061821712&hl=en&oi=scholarr",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:EBmiKMvpgsEJ:scholar.google.com/",
+      "cites_per_year": {
+        "2018": 1,
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 3,
+        "2023": 2,
+        "2024": 1
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "The wave energy converter control competition (WECCCOMP): Wave energy control algorithms compared in both simulation and tank testing",
+        "pub_year": 2023,
+        "citation": "Applied Ocean Research 138, 103653, 2023",
+        "author": "John V Ringwood and Nathan Tom and Francesco Ferri and Yi-Hsiang Yu and Ryan G Coe and Kelley Ruehl and Giorgio Bacelli and Shuo Shi and Ron J Patton and Paolino Tona and Guillaume Sabiron and Alexis Merigaud and Bradley A Ling and Nicolas Faedo",
+        "journal": "Applied Ocean Research",
+        "volume": "138",
+        "pages": "103653",
+        "publisher": "Elsevier",
+        "abstract": "The wave energy control competition established a benchmark problem which was offered as an open challenge to the wave energy system control community. The competition had two stages: In the first stage, competitors used a standard wave energy simulation platform (WEC-Sim) to evaluate their controllers while, in the second stage, competitors were invited to test their controllers in a real-time implementation on a prototype system in a wave tank. The performance function used was based on converted energy across a range of standard sea states, but also included aspects related to economic performance, such as peak/average power, peak force, etc. This paper compares simulated and experimental results and, in particular, examines if the results obtained in a linear system simulation are borne out in reality. Overall, within the scope of the device tested, the range of sea states employed, and the …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:4DMP91E08xMC",
+      "num_citations": 6,
+      "citedby_url": "/scholar?hl=en&cites=16204619247058890578",
+      "cites_id": [
+        "16204619247058890578"
+      ],
+      "pub_url": "https://www.sciencedirect.com/science/article/pii/S0141118723001943",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:Ui9ndVlf4uAJ:scholar.google.com/",
+      "cites_per_year": {
+        "2024": 6
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Non quadratic smooth model of fatigue for optimal fatigue-oriented individual pitch control",
+        "pub_year": 2020,
+        "citation": "Journal of Physics: Conference Series 1618 (2), 022004, 2020",
+        "author": "David Collet and Mazen Alamir and Domenico Di Domenico and Guillaume Sabiron",
+        "journal": "Journal of Physics: Conference Series",
+        "volume": "1618",
+        "number": "2",
+        "pages": "022004",
+        "publisher": "IOP Publishing",
+        "abstract": "Operation and maintenance cost of wind turbine is intimately related to fatigue damage. However, considering fatigue directly in an optimization needs to be carefully done because its faithful model does not fit standard forms. Recent results have shown that the fatigue damage of a signal estimated using fatigue theory is non-linearly related to its corresponding variance. Therefore, this relationship is used to design a convex cost function approximating fatigue. In this paper, the sensitivity of open-loop optimizations using this fatigue-oriented non-quadratic cost function to the time horizon considered is studied, in terms of both fatigue and computational cost. Moreover, in order to alleviate the undesirable effects of the computational cost, an efficient fixed-point iteration-based way to optimize this fatigue-oriented cost function is presented. Results show that the fatigue-oriented cost function allows to obtain sensitive …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:MXK_kJrjxJIC",
+      "num_citations": 6,
+      "citedby_url": "/scholar?hl=en&cites=12813489824181725525",
+      "cites_id": [
+        "12813489824181725525"
+      ],
+      "pub_url": "https://iopscience.iop.org/article/10.1088/1742-6596/1618/2/022004/meta",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:VSlvNxup0rEJ:scholar.google.com/",
+      "cites_per_year": {
+        "2021": 3,
+        "2022": 2,
+        "2023": 1
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Nacelle LiDAR online wind field reconstruction applied to feedforward pitch control",
+        "pub_year": 2016,
+        "citation": "Journal of Physics: Conference Series 753 (5), 052019, 2016",
+        "author": "F Guillemin and D Di Domenico and N Nguyen and G Sabiron and M Boquet and N Girard and O Coupiac",
+        "journal": "Journal of Physics: Conference Series",
+        "volume": "753",
+        "number": "5",
+        "pages": "052019",
+        "publisher": "IOP Publishing",
+        "abstract": "This paper presents innovative filtering and reconstruction techniques of nacelle LiDAR data, and exploitation of obtained wind anticipation capabilities for wind turbine control strategy. The implemented algorithms are applied under industrial constraints, on a MAIA EOLIS wind turbine, equipped with a LEOSPHERE 5-beams pulsed LiDAR, during experimental campaigns of SMARTEOLE collaborative project."
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:WF5omc3nYNoC",
+      "num_citations": 6,
+      "citedby_url": "/scholar?hl=en&cites=1408030974169613053",
+      "cites_id": [
+        "1408030974169613053"
+      ],
+      "pub_url": "https://iopscience.iop.org/article/10.1088/1742-6596/753/5/052019/meta",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:_YIgALZUihMJ:scholar.google.com/",
+      "cites_per_year": {
+        "2017": 1,
+        "2018": 2,
+        "2019": 1,
+        "2020": 0,
+        "2021": 0,
+        "2022": 2
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Suboptimal lunar landing GNC using nongimbaled optic-flow sensors",
+        "pub_year": 2015,
+        "citation": "IEEE Transactions on Aerospace and Electronic Systems 51 (4), 2525-2545, 2015",
+        "author": "Guillaume Sabiron and Thibaut Raharijaona and Laurent Burlion and Erwan Kervendal and Eric Bornschlegl and Franck Ruffier",
+        "journal": "IEEE Transactions on Aerospace and Electronic Systems",
+        "volume": "51",
+        "number": "4",
+        "pages": "2525-2545",
+        "publisher": "IEEE",
+        "abstract": "Autonomous planetary landing is a critical phase in every exploratory space mission. Autopilots have to be safe, reliable, energy saving, and as light as possible. The 2-D guidance, navigation, and control strategy presented here makes use of biologically inspired landing processes. Based solely on the relative visual motion known as optic flow (OF), assessed with minimalistic 6-pixel 1-D OF sensors and inertial measurement unit measurements, an optimal reference trajectory in terms of the mass was defined for the approach phase. Linear and nonlinear control laws were then implemented to track the optimal trajectory. To deal with the demanding weight constraints, a new method of OF estimation was applied, based on a nongimbaled OF sensor configuration and a linear least-squares algorithm. The promising results obtained with software-in-the-loop simulations showed that the present full guidance …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:Tyk-4Ss8FVUC",
+      "num_citations": 6,
+      "citedby_url": "/scholar?hl=en&cites=13433087823529973280",
+      "cites_id": [
+        "13433087823529973280"
+      ],
+      "pub_url": "https://ieeexplore.ieee.org/abstract/document/7376199/",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:IBYhNjTqa7oJ:scholar.google.com/",
+      "cites_per_year": {
+        "2014": 2,
+        "2015": 0,
+        "2016": 0,
+        "2017": 0,
+        "2018": 0,
+        "2019": 2,
+        "2020": 1,
+        "2021": 1
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Optic flow-based nonlinear control and sub-optimal guidance for lunar landing",
+        "pub_year": 2014,
+        "citation": "2014 IEEE International Conference on Robotics and Biomimetics (ROBIO 2014 …, 2014",
+        "author": "Guillaume Sabiron and Laurent Burlion and Thibaut Raharijaona and Franck Ruffier",
+        "conference": "2014 IEEE International Conference on Robotics and Biomimetics (ROBIO 2014)",
+        "pages": "1241-1247",
+        "publisher": "IEEE",
+        "abstract": "A sub-optimal guidance and nonlinear control scheme based on Optic Flow (OF) cues ensuring soft lunar landing using two minimalistic bio-inspired visual motion sensors is presented here. Unlike most previous approaches, which rely on state estimation techniques and multiple sensor fusion methods, the guidance and control strategy presented here is based on the sole knowledge of a minimum sensor suite (including OF sensors and an IMU). Two different tasks are addressed in this paper: the first one focuses on the computation of an optimal trajectory and the associated control sequences, and the second one focuses on the design and theoretical stability analysis of the closed loop using only OF and IMU measurements as feedback information. Simulations performed on a lunar landing scenario confirm the excellent performances and the robustness to initial uncertainties of the present guidance and control …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:IjCSPb-OGe4C",
+      "num_citations": 5,
+      "citedby_url": "/scholar?hl=en&cites=6549657975431558529",
+      "cites_id": [
+        "6549657975431558529"
+      ],
+      "pub_url": "https://ieeexplore.ieee.org/abstract/document/7090503/",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:gfXmIToP5VoJ:scholar.google.com/",
+      "cites_per_year": {
+        "2014": 1,
+        "2015": 0,
+        "2016": 0,
+        "2017": 1,
+        "2018": 0,
+        "2019": 0,
+        "2020": 0,
+        "2021": 1,
+        "2022": 0,
+        "2023": 0,
+        "2024": 2
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "A novel approach to traffic flow estimation based on floating car data and road topography: Experimental validation in Lyon, France",
+        "pub_year": 2022,
+        "citation": "2022 IEEE 25th International Conference on Intelligent Transportation …, 2022",
+        "author": "Bassel Othman and Giovanni De Nunzio and Mohamed Laraki and Guillaume Sabiron",
+        "conference": "2022 IEEE 25th International Conference on Intelligent Transportation Systems (ITSC)",
+        "pages": "2571-2576",
+        "publisher": "IEEE",
+        "abstract": "Today, Floating Car Data (FCD), which are obtained from the GPS sensor measurements of vehicles, represent a particularly interesting source of data for road traffic managers. Indeed, they give information on the traffic flow and the average speed on a whole territory, enabling many applications such as congestion or air quality prediction. However, this information is partial in the sense that only the vehicles equipped with GPS are counted. Models are therefore necessary to convert the partial FCD count into the total traffic volume. In this study, we propose to cross the FCD with loop detectors data, which capture the real traffic flows but only at certain locations, in order to train a flow prediction model. The proposed approach is based on multiple linear regressions, the weight of each regression being determined by a Random Forest (RF) algorithm. The methodology is calibrated and tested on data from Lyon …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:aqlVkmm33-oC",
+      "num_citations": 4,
+      "citedby_url": "/scholar?hl=en&cites=3839903240430495614",
+      "cites_id": [
+        "3839903240430495614"
+      ],
+      "pub_url": "https://ieeexplore.ieee.org/abstract/document/9922602/",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:fie7CacTSjUJ:scholar.google.com/",
+      "cites_per_year": {
+        "2023": 2,
+        "2024": 2
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Sensorless estimation of real-driving emissions from GPS data: An innovative approach allowing large scale measurement campaigns",
+        "pub_year": 2018,
+        "citation": "The Future of Road Mobility ‘Research with Impact’ 51, 2018",
+        "author": "L Thibault and P Dégeilh and G Sabiron and L Voise and K Thanabalasingam and G Corde",
+        "journal": "The Future of Road Mobility ‘Research with Impact’",
+        "volume": "51",
+        "abstract": "Real-world driving conditions may have a significant impact on pollutant emissions. So far, real driving emissions knowledge involves installing Portable Emissions Measurement Systems (PEMS), which are too expensive for largescale measurement campaigns. Pollutant emissions estimation at the fleet level are usually based on the use of Emissions Factors (EFs). EFs were first developed in the 1990s to achieve national inventories. They are suitable for macroscopic estimations but tend to be limited for a microscopic evaluation. The knowledge of microscopic exhaust emissions, ie at the level of small road segments, is a key challenge. It will allow cities to understand the impact of the road infrastructure and regulations and it will help to improve microscopic estimation of the air quality which is now based on the EFs. This paper describes an innovative coupling of information and communication technology and …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:_kc_bZDykSQC",
+      "num_citations": 4,
+      "citedby_url": "/scholar?hl=en&cites=4678030235296730863",
+      "cites_id": [
+        "4678030235296730863"
+      ],
+      "pub_url": "https://scholar.google.com/scholar?cluster=4678030235296730863&hl=en&oi=scholarr",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:7w5mt7az60AJ:scholar.google.com/",
+      "cites_per_year": {
+        "2020": 1,
+        "2021": 0,
+        "2022": 1,
+        "2023": 1,
+        "2024": 1
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Ex-post analysis of the wec control competition results using a fourier spectral control approach",
+        "pub_year": 2020,
+        "citation": "IFAC-PapersOnLine 53 (2), 12319-12326, 2020",
+        "author": "Alexis Mérigaud and Caroline Ngo and Hoai-Nam Nguyen and Guillaume Sabiron and Paolino Tona",
+        "journal": "IFAC-PapersOnLine",
+        "volume": "53",
+        "number": "2",
+        "pages": "12319-12326",
+        "publisher": "Elsevier",
+        "abstract": "The wave energy converter control competition (WECCCOMP) allowed several real-time control approaches to be assessed, both in numerical and physical experiments. The solution retained by IFP Énergies Nouvelles (IFPeN), which won the numerical simulation and experimental evaluation phases, consists of a receding-horizon MPC algorithm, including an estimator and a predictor for the wave excitation torque. The control objective function, solved by a quadratic programming (QP) optimiser in the real-time implementation, is weighted over the receding time horizon by means of weighting coefficients, which are optimised off-line for each sea state, in order to take into account the non-ideal power take-off (PTO) efficiency. Given the potential complexity of the interaction between the different components involved in the control implementation (estimation, prediction, QP solution, choice of weightings), it is useful …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:KlAtU1dfN6UC",
+      "num_citations": 3,
+      "citedby_url": "/scholar?hl=en&cites=4421012693197924336",
+      "cites_id": [
+        "4421012693197924336"
+      ],
+      "pub_url": "https://www.sciencedirect.com/science/article/pii/S2405896320315925",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:8CeO9Z6XWj0J:scholar.google.com/",
+      "cites_per_year": {
+        "2020": 1,
+        "2021": 0,
+        "2022": 1,
+        "2023": 1
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "A data-driven approach for fatigue-based individual blade pitch controller selection from wind conditions",
+        "pub_year": 2019,
+        "citation": "2019 American Control Conference (ACC), 3500-3505, 2019",
+        "author": "David Collet and Domenico Di Domenico and Guillaume Sabiron and Mazen Alamir",
+        "conference": "2019 American Control Conference (ACC)",
+        "pages": "3500-3505",
+        "publisher": "IEEE",
+        "abstract": "In a context of wind power production growth, it is necessary to optimize the levelized cost of energy by reducing the wind turbine operation and maintenance costs. This paper addresses these issues through an innovative data-driven approach, applied to individual pitch control and based on wind conditions clustering, from light detection and ranging (LiDAR) wind field reconstruction. A set of controllers is first designed, and a surrogate model is fitted to predict the economic fatigue cost of the wind turbine in closed-loop for each of these controllers, given a cluster of wind conditions. This allows online selection of the controller minimizing mechanical fatigue loads among the candidates for each wind condition. Preliminary tests show promising results regarding the effectiveness of this method in reducing wind turbine fatigue when compared to a single optimized individual pitch controller. The main advantages of …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:hqOjcs7Dif8C",
+      "num_citations": 3,
+      "citedby_url": "/scholar?hl=en&cites=4942987808070970805",
+      "cites_id": [
+        "4942987808070970805"
+      ],
+      "pub_url": "https://ieeexplore.ieee.org/abstract/document/8815328/",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:tS0o7TgFmUQJ:scholar.google.com/",
+      "cites_per_year": {
+        "2020": 1,
+        "2021": 1,
+        "2022": 1
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Backup State Observer Based on Optic Flow Applied to Lunar Landing",
+        "pub_year": 2014,
+        "citation": "IEEE/RSJ International Conference on Intelligent Robots and Systems, 2014",
+        "author": "Guillaume Sabiron and Laurent Burlion and Grégory Jonniaux and Erwan Kervendal and Eric Bornschlegl and Thibaut Raharijaona and Franck Ruffier",
+        "conference": "IEEE/RSJ International Conference on Intelligent Robots and Systems",
+        "abstract": "The observer presented in this paper, which was based on the use of three minimalistic bio-inspired Visual Motion Sensors (VMS) detecting Optic Flow (OF) cues, states was intended as a backup solution in the case of Inertial Measurement Unit (IMU) failure. Contrary to most previous Guidance Navigation and Control (GNC) solutions for planetary landing, which have involved a sensor suite including an IMU, an innovative strategy is presented here for estimating states without any need for inertial measurements, based solely on information about the relative velocity of the images of the surrounding environment. A Linear Parameter Varying (LPV) observer designed on a LPV system linearized around a reference trajectory, estimates: the ventral OF, the expansion OF and the local pitch angle. A previously developed observer was applied here to a larger class of nonlinear systems by making an ingenious change …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:qjMakFHDy7sC",
+      "num_citations": 3,
+      "citedby_url": "/scholar?hl=en&cites=15155209361006801643",
+      "cites_id": [
+        "15155209361006801643"
+      ],
+      "pub_url": "https://ieeexplore.ieee.org/abstract/document/6942877/",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:6zJ8O54eUtIJ:scholar.google.com/",
+      "cites_per_year": {
+        "2014": 2,
+        "2015": 0,
+        "2016": 0,
+        "2017": 1
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Toward an autonomous lunar landing based on low-speed optic flow sensors",
+        "pub_year": 2013,
+        "citation": "Advances in Aerospace Guidance, Navigation and Control: Selected Papers of …, 2013",
+        "author": "Guillaume Sabiron and Paul Chavent and Laurent Burlion and Erwan Kervendal and Eric Bornschlegl and Patrick Fabiani and Thibaut Raharijaona and Franck Ruffier",
+        "conference": "Advances in Aerospace Guidance, Navigation and Control: Selected Papers of the Second CEAS Specialist Conference on Guidance, Navigation and Control",
+        "pages": "681-699",
+        "publisher": "Springer Berlin Heidelberg",
+        "abstract": "For the last few decades, growing interest has returned to the quite challenging task of the autonomous lunar landing. Soft landing of payloads on the lunar surface requires the development of new means of ensuring safe descent with strong final conditions and aerospace-related constraints in terms of mass, cost and computational resources. In this paper, a two-phase approach is presented: first a biomimetic method inspired from the neuronal and sensory system of flying insects is presented as a solution to perform safe lunar landing. In order to design an autopilot relying only on optic flow (OF) and inertial measurements, an estimation method based on a two-sensor setup is introduced: these sensors allow us to accurately estimate the orientation of the velocity vector which is mandatory to control the lander’s pitch in a quasi-optimal way with respect to the fuel consumption. Secondly a new low-speed …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:9yKSN-GCB0IC",
+      "num_citations": 3,
+      "citedby_url": "/scholar?hl=en&cites=13582618309265938383",
+      "cites_id": [
+        "13582618309265938383"
+      ],
+      "pub_url": "https://link.springer.com/chapter/10.1007/978-3-642-38253-6_39",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:z1eDc2Mnf7wJ:scholar.google.com/",
+      "cites_per_year": {
+        "2015": 3
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Method and system for controlling a quantity of a wind turbine by choosing the controller via machine learning",
+        "pub_year": 2023,
+        "citation": "US Patent 11,725,626, 2023",
+        "author": "David Collet and Guillaume Sabiron and Domenico Di Domenico and AL-AMIR Mazen",
+        "abstract": "The present invention relates to a method of controlling a wind turbine by automatic online selection of a controller that minimizes the wind turbine fatigue. The method therefore relies on an (offline constructed) database (BDD) of simulations of a list (LIST) of controllers, and on an online machine learning step for determining the optimal controller in terms of wind turbine (EOL) fatigue. Thus, the method allows automatic selection of controllers online, based on a fatigue criterion, and switching between the controllers according to the measured evolution of wind condition."
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:ULOm3_A8WrAC",
+      "num_citations": 2,
+      "citedby_url": "/scholar?hl=en&cites=12619409980156830616",
+      "cites_id": [
+        "12619409980156830616"
+      ],
+      "pub_url": "https://patents.google.com/patent/US11725626B2/en",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:mGNENoQmIa8J:scholar.google.com/",
+      "cites_per_year": {
+        "2024": 2
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Method and device for determining an estimate of the total mass of a motor vehicle",
+        "pub_year": 2022,
+        "citation": "US Patent 11,307,081, 2022",
+        "author": "Domenico Di Domenico and Alexandre Chasse and Guillaume Sabiron",
+        "abstract": "(57) ABSTRACT A method determines the total mass of an automotive vehicle on the basis of data of a communication network and parameters of the vehicle, in which an estimation of the total laden mass (mv, est) of the vehicle, of the speed of the vehicle (vest) and of the slope of the road (aest) is deter mined at an instant (k) by applying the fundamental equation of dynamics and as a function of the values of the total mass of the vehicle, of the speed of the vehicle and of the slope of the road at a previous instant (k-1)."
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:UebtZRa9Y70C",
+      "num_citations": 2,
+      "citedby_url": "/scholar?hl=en&cites=3924985833429946991",
+      "cites_id": [
+        "3924985833429946991"
+      ],
+      "pub_url": "https://patents.google.com/patent/US11307081B2/en",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:b1II7tFZeDYJ:scholar.google.com/",
+      "cites_per_year": {
+        "2024": 2
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Method and device for analyzing the energy expenditure distribution of a motor vehicle",
+        "pub_year": 2021,
+        "citation": "US Patent 11,195,352, 2021",
+        "author": "Alexandre Chasse and Guillaume Sabiron and Domenico Di Domenico",
+        "abstract": "A method for analyzing the distribution of energy expendi tures of a motor vehicle from data from a communications network and from parameters of the vehicle includes steps in which the energy expenditures of the vehicle over a journey are calculated, the said energy expenditures are analyzed by comparing them with at least one model of the vehicle simulating the same journey, an energy balance report is formulated on the basis of the analysis of the energy expenditures and of the fuel consumption and the said energy balance report is communicated to an external server."
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:Se3iqnhoufwC",
+      "num_citations": 2,
+      "citedby_url": "/scholar?hl=en&cites=13165086880292129137",
+      "cites_id": [
+        "13165086880292129137"
+      ],
+      "pub_url": "https://patents.google.com/patent/US11195352B2/en",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:ccn3GMTIs7YJ:scholar.google.com/",
+      "cites_per_year": {
+        "2023": 1,
+        "2024": 1
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Synthèse d’une solution GNC basée sur des capteurs de flux optique bio-inspirés adaptés à la mesure des basses vitesses pour un atterrissage lunaire autonome en douceur",
+        "pub_year": 2014,
+        "citation": "ISAE-Institut Supérieur de l'Aéronautique et de l'Espace, 2014",
+        "author": "Guillaume Sabiron",
+        "abstract": "Dans cette thèse, nous nous intéressons au problème de l’atterrissage lunaire autonome et nous proposons une méthode innovante amenant une alternative à l’utilisation de capteurs classiques qui peuvent se révéler encombrants, énergivores et très onéreux.La première partie est consacrée au développement et à la construction de capteurs de mouvement inspirés de la vision des insectes volants et mesurant le flux optique.Le flux optique correspond à la vitesse angulaire relative de l’environnement mesurée par la rétine d’un agent. Dans un environnement fixe, les mouvements d’un robot génèrent un flux optique contenant des informations essentielles sur le mouvement de ce dernier. En utilisant le principe du « temps de passage », nous présentons les résultats expérimentaux obtenus en extérieur avec deux versions de ces capteurs.Premièrement, un capteur mesurant le flux optique dans les deux directions opposées est développé et testé en laboratoire. Deuxièmement un capteur adapté à la mesure des faibles flux optiques similaires à ceux pouvant être mesurés lors d’un alunissage est développé, caractérisé et enfin testé sur un drone hélicoptère en conditions extérieures.Dans la seconde partie, une méthode permettant de réaliser le guidage, la navigation et la commande (GNC pour Guidance Navigation and Control) du système est proposée. L’innovation réside dans le fait que l’atterrissage en douceur est uniquement assuré par les capteurs de flux optique. L’utilisation des capteurs inertiels est réduite au maximum. Plusieurs capteurs orientés dans différentes directions de visée, et fixés à la structure de l’atterrisseur permettent …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:zYLM7Y9cAGgC",
+      "num_citations": 1,
+      "citedby_url": "/scholar?hl=en&cites=4163346510101132224",
+      "cites_id": [
+        "4163346510101132224"
+      ],
+      "pub_url": "https://hal.science/tel-01096458/",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:wLNws5ctxzkJ:scholar.google.com/",
+      "cites_per_year": {
+        "2016": 1
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Bio-inspired landing approaches and their potential use on extraterrestrial bodies",
+        "pub_year": 2013,
+        "citation": "Asteroids: Prospective Energy and Material Resources, 221-246, 2013",
+        "author": "Thibaut Raharijaona and Guillaume Sabiron and Stéphane Viollet and Nicolas Franceschini and Franck Ruffier",
+        "journal": "Asteroids: Prospective Energy and Material Resources",
+        "pages": "221-246",
+        "publisher": "Springer Berlin Heidelberg",
+        "abstract": "Landing on asteroids and extraterrestrial bodies is a critical stage for future exploration missions. Safe and soft landing on asteroids will be required even though the task is way harder than on the Earth due to the small size, irregular shape and variable surface properties of asteroids, as well as the low gravity and negligible drag experienced by the spacecraft. Optical guidance and navigation for autonomous landing on small celestial bodies have been studied in the past years with a focus on the closed-loop guidance, navigation, and control (GNC) systems (De Lafontaine1992, Kawaguchi et al. 1999)."
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:u-x6o8ySG0sC",
+      "num_citations": 1,
+      "citedby_url": "/scholar?hl=en&cites=7165247178763568850",
+      "cites_id": [
+        "7165247178763568850"
+      ],
+      "pub_url": "https://link.springer.com/chapter/10.1007/978-3-642-39244-3_9",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:0oYSklgScGMJ:scholar.google.com/",
+      "cites_per_year": {
+        "2014": 1
+      }
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "A Robust Approach for Transportation Mode Detection Using Smartphone-Based GPS Sensors and Road Network Information",
+        "pub_year": 2023,
+        "citation": "2023 IEEE 26th International Conference on Intelligent Transportation …, 2023",
+        "author": "Francisco González de Cossío and Guillaume Sabiron",
+        "conference": "2023 IEEE 26th International Conference on Intelligent Transportation Systems (ITSC)",
+        "pages": "959-965",
+        "publisher": "IEEE",
+        "abstract": "Transport mode detection (TMD) is an essential cornerstone for advancing the field of mobility research, providing vital insights into human travel behavior, urban mobility, and transportation infrastructure usage. It plays a fundamental role in devising efficient transportation strategies, optimizing public transit systems, and informing sustainable mobility initiatives. However, challenges posed by GPS data, including poor reception and varying accuracy, demand innovative solutions. This paper presents a novel and comprehensive method that integrates multi-source data, including GPS, smartphone sensors, and road network information, to enhance TMD accuracy for real-world trips. By consolidating neural networks, map-matching techniques, and a trajectory similarity function the solution proposed tackle the complexities of TMD effectively. Through extensive validation using the Geco Air application, we …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:dhFuZR0502QC",
+      "num_citations": 0,
+      "pub_url": "https://ieeexplore.ieee.org/abstract/document/10422698/",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:N2H8WXViYz4J:scholar.google.com/",
+      "cites_per_year": {}
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "A study on the impact of infrastructure on transport emissions based on real driving data",
+        "pub_year": 2023,
+        "citation": "Transportation research procedia 72, 2960-2967, 2023",
+        "author": "Guillaume Sabiron and Mohamed Laraki",
+        "journal": "Transportation research procedia",
+        "volume": "72",
+        "pages": "2960-2967",
+        "publisher": "Elsevier",
+        "abstract": "The objective of the paper is to enable local authorities to improve air quality by considering road traffic polluting emissions in their decision to deal with road infrastructure. Innovative tools based on real mobility data from thousands of users were developed. These tools provide urban mobility departments with a clear vision of the impact of urban development and the associated regulations. They enable the classification of the impact of the different types of road development in place on the territory to identify best practices. The approach presented enables the visualization of the levels of polluting emissions, noise, emergency braking, and congestion on each section of the road. Then, recent infrastructure modifications, on which data could be collected before and after, were analyzed. Finally, infrastructure is classified in terms of polluting levels depending on congestion."
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:QIV2ME_5wuYC",
+      "num_citations": 0,
+      "pub_url": "https://www.sciencedirect.com/science/article/pii/S2352146523012279",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:0xgXQ_P0mdIJ:scholar.google.com/",
+      "cites_per_year": {}
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Behavioral cloning for fatigue-oriented wind turbine optimal predictive control",
+        "pub_year": 2021,
+        "citation": "IFAC-PapersOnLine 54 (9), 590-595, 2021",
+        "author": "David Collet and Mazen Alamir and Domenico Di Domenico and Guillaume Sabiron",
+        "journal": "IFAC-PapersOnLine",
+        "volume": "54",
+        "number": "9",
+        "pages": "590-595",
+        "publisher": "Elsevier",
+        "abstract": "As wind energy production keeps on increasing, it is necessary to optimize the fatigue/performance trade-off of operating wind turbines. However, considering fatigue directly in optimal control needs to be carefully done because its faithful model does not necessarily fit standard forms commonly required by general purpose solvers. It was recently shown that a signal variance and its induced fatigue can be statistically related. This suggests that a fatigue-related cost function can be expressed as a non-quadratic cost function, and used in an open-loop optimal control problem. However, it was also shown that such cost function becomes very efficient only for relatively long prediction horizons. This makes the on-line solution of the underlying open-loop optimal control problem computationally demanding and undermines the real-time applicability of associated MPC schemes. In this paper, a behavioral learning …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:8k81kl-MbHgC",
+      "num_citations": 0,
+      "pub_url": "https://www.sciencedirect.com/science/article/pii/S2405896321005978",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:rEv9gd653sAJ:scholar.google.com/",
+      "cites_per_year": {}
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "A Machine Learning-Based Approach for Individual Blade Pitch Controller Selection From Wind Conditions",
+        "pub_year": 2019,
+        "citation": "ACC 2019-American Control Conference, 2019",
+        "author": "David Collet and Domenico Di Domenico and Guillaume Sabiron and Mazen Alamir",
+        "conference": "ACC 2019-American Control Conference",
+        "abstract": "A Machine Learning-Based Approach for Individual Blade Pitch Controller Selection From Wind \nConditions - Archive ouverte HAL Accéder directement au contenu Documentation FR Français \n(FR) Anglais (EN) Se connecter HAL science ouverte Recherche Loading... Recherche \navancée Information de documents Titres Titres Sous-titre Titre de l'ouvrage Titre du volume \n(Série) Champ de recherche par défaut (multicritères) + texte intégral des PDF Résumé Texte \nintégral indexé des documents PDF Mots-clés Type de document Sous-type de document \nTous les identifiants du document Identifiant HAL du dépôt Langue du document (texte) Pays \n(Texte) Ville À paraître (true ou false) Ajouter Auteur Auteur (multicritères) Auteur (multicritères) \nAuteur : Nom complet Auteur : Nom de famille Auteur : Prénom Auteur : Complément de \nnom, deuxième prénom Auteur : Organisme payeur Auteur : IdHal (chaîne de caractères) …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:5nxA0vEk-isC",
+      "num_citations": 0,
+      "pub_url": "https://hal.science/hal-02378204/",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:Da6iLBomeE0J:scholar.google.com/",
+      "cites_per_year": {}
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "A machine learning approach for online IPC controller selection based on wind features",
+        "pub_year": 2018,
+        "citation": "EAWE 2018-14th EAWE PhD Seminar, 2018",
+        "author": "David Collet and Mazen Alamir and Domenico Di Domenico and Guillaume Sabiron",
+        "conference": "EAWE 2018-14th EAWE PhD Seminar",
+        "abstract": "The wind energy production has been exponentially growing in the last decades, with about 539 GW globally installed in 2017 out of 94 in 2007. In order to achieve the COP21 objectives in terms of CO2 emissions, the growth of the wind energy industry is expected to develop even further. Thus, there is a need for reducing turbine CAPital EXpenditure (CAPEX) and OPerational EXpenditure (OPEX). Wind turbine control aims at firstly regulating the wind turbine rotational speed and power, and secondly, minimizing wind turbine mechanical strains, and therefore the OPEX. A three bladed Horizontal Axis Wind Turbine (HAWT) is equipped with five actuators, the yaw actuator, the electrical generator, and the three blade pitch actuators which can spin the blades on their longitudinal axis. Nowadays the two most studied pitch control strategies are the Collective Pitch Control (CPC) and the Individual Pitch Control (IPC) on which the focus is set in this study. To this day, many works have been conducted, using various control techniques going from Proportional Integral (PI) controller [1] to advanced Model Predictive Control (MPC)[2] and Nonlinear Model Predictive Control (NMPC)[3], including H∞[4]. The recent advances in Light Detection And Ranging (LiDAR) and Wind Field Reconstruction (WFR) have led to use its enhanced information on the inflow wind field to anticipate the control action. This makes control strategies such as feedforward [4], MPC [2] or even NMPC [3] particularly interesting. Another research track regarding wind turbines is to predict HAWT components fatigue from wind, with statistical and machine learning solutions [5, 6]. The …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:LkGwnXOMwfcC",
+      "num_citations": 0,
+      "pub_url": "https://hal.science/hal-01945059/document",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:48lopISR-sMJ:scholar.google.com/",
+      "cites_per_year": {}
+    },
+    {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Using LIDAR Based Control to Reduce Loads on Floating Wind Turbines and Boost Performance",
+        "pub_year": 2016,
+        "citation": "Offshore Technology Conference, D031S041R003, 2016",
+        "author": "Fabrice Guillemin and Domenico di Domenico and Guillaume Sabiron and Daniel Averbuch",
+        "conference": "Offshore Technology Conference",
+        "pages": "D031S041R003",
+        "publisher": "OTC",
+        "abstract": "Offshore wind turbines are being developed worldwide as a large scale source of renewable electricity. However, to accelerate and secure the development in the long term of offshore wind, there is a need to reduce the cost of electricity. To achieve this, wind turbine manufacturers are developing larger size wind turbines, which allow foundation, installation and balance of plant cost reduction. Developing larger wind turbines brings new design challenges, as offshore wind turbines are subject to severe loading resulting mostly from wind speed variation, incoming gusts, and wave loading.The paper presents current developments aiming at reducing loading experienced by offshore wind turbines using advanced control strategies and LiDAR based long-distance wind measurements.In order to mitigate the wind loading, modern wind turbines indeed rely on control systems that define optimal blade …"
+      },
+      "filled": true,
+      "author_pub_id": "tZui0eYAAAAJ:ufrVoPGSRksC",
+      "num_citations": 0,
+      "pub_url": "https://onepetro.org/OTCONF/proceedings-abstract/16OTC/3-16OTC/84666",
+      "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:z0srvCFk3h0J:scholar.google.com/",
+      "cites_per_year": {}
+    }
+  ],
+  "patents": []
+}
