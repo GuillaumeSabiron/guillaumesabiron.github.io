@@ -22,6 +22,10 @@ __MACOSX/
 *.log
 *.tmp
 
+# --- Node build output ---
+dist/
+node_modules/
+
 # --- Data (optionnel : décommente si tu ne veux pas tout versionner) ---
 # data/*.html
 # data/*.csv
