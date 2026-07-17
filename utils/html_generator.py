@@ -23,7 +23,6 @@ def generate_paper_entries(papers: Iterable[Dict]) -> str:
         else:
             authors = ', '.join(authors) if isinstance(authors, (list, tuple)) else 'N/A'
 
-        paper_type = str(bib.get('venue', 'N/A')).lower()
         paper_id = paper.get('id') or paper.get('pub_url') or f"paper-{index}"
 
         entries.append(
@@ -33,7 +32,6 @@ def generate_paper_entries(papers: Iterable[Dict]) -> str:
             <div class="description" id="{paper_id}" style="display: none;">
                 <p><strong>Date:</strong> {bib.get('pub_year', 'N/A')}</p>
                 <p><strong>Authors:</strong> {authors}</p>
-                <p><strong>Type:</strong> {paper_type}</p>
                 <p><strong>Abstract:</strong> {bib.get('abstract', 'N/A')}</p>
                 <p><a href="{paper.get('pub_url', '#')}" target="_blank">View Paper</a></p>
             </div>
@@ -44,6 +42,12 @@ def generate_paper_entries(papers: Iterable[Dict]) -> str:
 
 def generate_html(papers: List[Dict], total_counts: Dict[str, int]) -> str:
     """Generates the full HTML content."""
+    papers = sorted(
+        papers,
+        key=lambda paper: int(str(paper.get('bib', {}).get('pub_year', '')).strip())
+        if str(paper.get('bib', {}).get('pub_year', '')).strip().isdigit() else 0,
+        reverse=True,
+    )
     html_template = """
     <!DOCTYPE html>
     <html lang="en">

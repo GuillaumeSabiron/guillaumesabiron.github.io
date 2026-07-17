@@ -32,30 +32,32 @@ def _fragment_nodes(fragment_html: str):
     return list(fragment_soup.contents)
 
 
-def build_static_site() -> Path:
-    with app.test_client() as client:
-        index_html = client.get("/").get_data(as_text=True)
+def _render_page(client, language: str, static_prefix: str, language_links: dict[str, str]) -> str:
+    index_html = client.get("/", query_string={"lang": language}).get_data(as_text=True)
 
-        soup = BeautifulSoup(index_html, "html.parser")
+    soup = BeautifulSoup(index_html, "html.parser")
 
-        for target_id, route in SECTION_ROUTES.items():
-            target = soup.find(id=target_id)
-            if target is None:
-                raise ValueError(f"Missing target container: {target_id}")
+    for target_id, route in SECTION_ROUTES.items():
+        target = soup.find(id=target_id)
+        if target is None:
+            raise ValueError(f"Missing target container: {target_id}")
 
-            fragment_html = client.get(route).get_data(as_text=True)
-            target.clear()
-            for node in _fragment_nodes(fragment_html):
-                target.append(node)
+        fragment_html = client.get(route, query_string={"lang": language}).get_data(as_text=True)
+        target.clear()
+        for node in _fragment_nodes(fragment_html):
+            target.append(node)
 
-        for script in soup.find_all("script"):
-            script_text = script.get_text(strip=False)
-            if "fetch('/expertise')" in script_text or "fetch(\"/expertise\")" in script_text:
-                script.decompose()
+    for script in soup.find_all("script"):
+        script_text = script.get_text(strip=False)
+        if "fetch(withLanguage('/expertise'))" in script_text:
+            script.decompose()
 
-        init_script = soup.new_tag("script")
-        init_script.string = """
+    init_script = soup.new_tag("script")
+    init_script.string = """
 document.addEventListener('DOMContentLoaded', function () {
+    if (typeof window.initializePublicationList === 'function') {
+        window.initializePublicationList();
+    }
     if (typeof window.initializeMap === 'function') {
         window.initializeMap();
     }
@@ -64,11 +66,24 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 """.strip()
-        soup.body.append(init_script)
+    soup.body.append(init_script)
 
-        rendered = str(soup)
-        rendered = rendered.replace('href="/static/', 'href="static/')
-        rendered = rendered.replace('src="/static/', 'src="static/')
+    rendered = str(soup)
+    rendered = rendered.replace('href="/static/', f'href="{static_prefix}')
+    rendered = rendered.replace('src="/static/', f'src="{static_prefix}')
+    for language_code, href in language_links.items():
+        rendered = rendered.replace(f'href="/?lang={language_code}"', f'href="{href}"')
+    return rendered
+
+
+def build_static_site() -> Path:
+    with app.test_client() as client:
+        rendered_en = _render_page(
+            client, "en", "static/", {"en": "./", "fr": "fr/"}
+        )
+        rendered_fr = _render_page(
+            client, "fr", "../static/", {"en": "../", "fr": "./"}
+        )
 
     if OUTPUT_DIR.exists():
         shutil.rmtree(OUTPUT_DIR)
@@ -81,9 +96,13 @@ document.addEventListener('DOMContentLoaded', function () {
         dirs_exist_ok=True,
     )
 
-    (OUTPUT_DIR / "index.html").write_text(rendered, encoding="utf-8")
+    (OUTPUT_DIR / "index.html").write_text(rendered_en, encoding="utf-8")
     (OUTPUT_DIR / ".nojekyll").write_text("", encoding="utf-8")
-    (OUTPUT_DIR / "404.html").write_text(rendered, encoding="utf-8")
+    (OUTPUT_DIR / "404.html").write_text(rendered_en, encoding="utf-8")
+    french_dir = OUTPUT_DIR / "fr"
+    french_dir.mkdir(exist_ok=True)
+    (french_dir / "index.html").write_text(rendered_fr, encoding="utf-8")
+    (french_dir / "404.html").write_text(rendered_fr, encoding="utf-8")
 
     return OUTPUT_DIR
 

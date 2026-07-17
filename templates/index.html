@@ -1,11 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang }}">
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
-    <meta content="Guillaume Sabiron - R&D and Digital Product Leader working on applied AI, connected mobility, environmental intelligence, and complex systems." name="description"/>
+    <meta content="{{ 'Responsable R&D et docteur, je transforme la recherche scientifique en plateformes de données et produits d’IA appliquée pour la mobilité, les émissions et la qualité de l’air.' if lang == 'fr' else 'R&D project leader and PhD turning scientific research into data platforms and applied AI products for mobility, emissions and air quality.' }}" name="description"/>
     <meta content="Guillaume Sabiron" name="author"/>
-    <title>Guillaume Sabiron - R&D and Digital Product Leader</title>
+    <title>{{ 'Guillaume Sabiron — Responsable R&D, IA appliquée et produits data' if lang == 'fr' else 'Guillaume Sabiron — R&D Project Leader, Applied AI and Data Products' }}</title>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="{{ 'Guillaume Sabiron — Responsable R&D, IA appliquée et produits data' if lang == 'fr' else 'Guillaume Sabiron — R&D Project Leader, Applied AI and Data Products' }}"/>
+    <meta property="og:description" content="{{ 'Responsable R&D, IA appliquée et produits data pour la mobilité et l’environnement.' if lang == 'fr' else 'R&D project leader and PhD turning scientific research into data platforms and applied AI products for mobility, emissions and air quality.' }}"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="{{ 'Guillaume Sabiron — Responsable R&D, IA appliquée et produits data' if lang == 'fr' else 'Guillaume Sabiron — R&D Project Leader, Applied AI and Data Products' }}"/>
+    <meta name="twitter:description" content="{{ 'Responsable R&D, IA appliquée et produits data pour la mobilité et l’environnement.' if lang == 'fr' else 'R&D project leader and PhD turning scientific research into data platforms and applied AI products for mobility, emissions and air quality.' }}"/>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Guillaume Sabiron",
+        "jobTitle": "R&D Project Leader — Applied AI, Data Products and Connected Mobility",
+        "address": { "@type": "PostalAddress", "addressLocality": "Lyon area", "addressCountry": "FR" },
+        "sameAs": [
+            "https://www.linkedin.com/in/gsabiron",
+            "https://scholar.google.com/citations?user=tZui0eYAAAAJ&hl=fr"
+        ],
+        "knowsAbout": ["Applied AI", "Data products", "Connected mobility", "Air quality", "Scientific systems"]
+    }
+    </script>
     <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon" type="image/x-icon"/>
     <!-- Font Awesome icons (free version) -->
     <script crossorigin="anonymous" src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
@@ -31,102 +51,96 @@
     <script src="{{ url_for('static', filename='js/charts.js') }}"></script>
 </head>
 <body id="page-top">
+    <a class="skip-link" href="#main-content">{{ 'Aller au contenu principal' if lang == 'fr' else 'Skip to main content' }}</a>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
             <span class="d-block d-lg-none">Guillaume Sabiron</span>
             <span class="d-none d-lg-block"><img alt="Profile Picture" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ url_for('static', filename='img/GS2.png') }}"/></span>
         </a>
-        <button aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarResponsive" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+        <button aria-controls="navbarResponsive" aria-expanded="false" aria-label="{{ 'Ouvrir le menu' if lang == 'fr' else 'Toggle navigation' }}" class="navbar-toggler" data-bs-target="#navbarResponsive" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about"><i class="fas fa-user"></i> About</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#expertise"><i class="fas fa-compass"></i> Expertise</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects"><i class="fas fa-diagram-project"></i> Projects</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills"><i class="fas fa-tools"></i> Skills</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#references"><i class="fas fa-book-open"></i> Publications</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests"><i class="fas fa-heart"></i> Positioning</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards"><i class="fas fa-trophy"></i> Credentials</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about"><i class="fas fa-user"></i> {{ 'Profil' if lang == 'fr' else 'About' }}</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#expertise"><i class="fas fa-compass"></i> {{ 'Expertise' }}</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects"><i class="fas fa-diagram-project"></i> {{ 'Projets' if lang == 'fr' else 'Projects' }}</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience"><i class="fas fa-briefcase"></i> {{ 'Expérience' if lang == 'fr' else 'Experience' }}</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education"><i class="fas fa-graduation-cap"></i> {{ 'Formation' if lang == 'fr' else 'Education' }}</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills"><i class="fas fa-tools"></i> {{ 'Compétences' if lang == 'fr' else 'Skills' }}</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#references"><i class="fas fa-book-open"></i> {{ 'Publications' }}</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests"><i class="fas fa-heart"></i> {{ 'Projet professionnel' if lang == 'fr' else 'Positioning' }}</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards"><i class="fas fa-trophy"></i> {{ 'Distinctions' if lang == 'fr' else 'Credentials' }}</a></li>
+                <li class="nav-item language-nav-item">
+                    <div class="language-switcher" aria-label="Language selector">
+                        <a class="{{ 'is-active' if lang == 'en' else '' }}" href="{{ url_for('home', lang='en') }}" hreflang="en">EN</a>
+                        <a class="{{ 'is-active' if lang == 'fr' else '' }}" href="{{ url_for('home', lang='fr') }}" hreflang="fr">FR</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
 
     <!-- Page Content-->
-    <main class="container-fluid p-0 site-shell">
+    <main class="container-fluid p-0 site-shell" id="main-content" tabindex="-1">
         <section class="resume-section hero-section" id="about">
             <div class="resume-section-content hero-layout">
                 <div class="hero-copy">
-                    <p class="eyebrow">R&amp;D leadership · digital products · applied AI · connected mobility</p>
+                    <p class="eyebrow">{{ 'pilotage R&D · produits numériques · IA appliquée · mobilité connectée' if lang == 'fr' else 'R&D leadership · digital products · applied AI · connected mobility' }}</p>
                     <h1 class="hero-title">
                         Guillaume <span class="text-primary">Sabiron</span>
                     </h1>
-                    <p class="hero-role">PhD · R&amp;D and Digital Product Leader</p>
+                    <p class="hero-role">{{ 'Docteur · Responsable R&D — IA appliquée, produits data et mobilité connectée' if lang == 'fr' else 'PhD · R&D Project Leader — Applied AI, Data Products and Connected Mobility' }}</p>
                     <p class="hero-lead">
-                        I lead multidisciplinary teams and transform applied AI, data, and scientific models into
-                        operational digital products for mobility, environmental intelligence, and complex technical
-                        systems.
+                        {{ 'Je transforme des enjeux scientifiques complexes en plateformes, modèles et produits numériques utiles, en reliant recherche, données, logiciel et besoins de terrain.' if lang == 'fr' else 'I turn complex scientific challenges into usable platforms, models, and digital products by connecting research, data, software, and real-world needs.' }}
                     </p>
                     <div class="cta-row">
-                        <a class="cta-button primary" href="mailto:guillaume.sabiron@ifpen.fr">Contact</a>
-                        <a class="cta-button secondary js-scroll-trigger" href="#experience">View experience</a>
-                        <a class="cta-button secondary js-scroll-trigger" href="#projects">Explore selected projects</a>
+                        <a class="cta-button primary" href="mailto:guillaume.sabiron@ifpen.fr">{{ 'Me contacter' if lang == 'fr' else 'Contact' }}</a>
+                        <a class="cta-button secondary js-scroll-trigger" href="#projects">{{ 'Découvrir mes projets' if lang == 'fr' else 'Explore my work' }}</a>
+                        <a class="cta-button secondary js-scroll-trigger" href="#interests">{{ 'Mon projet professionnel' if lang == 'fr' else 'What I’m looking for' }}</a>
                     </div>
                     <div class="hero-stats">
                         <div class="stat-card">
                             <span class="stat-value">15</span>
-                            <span class="stat-label">years in applied research, engineering, and innovation</span>
+                            <span class="stat-label">{{ 'ans en recherche appliquée, ingénierie et innovation' if lang == 'fr' else 'years in applied research, engineering, and innovation' }}</span>
                         </div>
                         <div class="stat-card">
                             <span class="stat-value">5+</span>
-                            <span class="stat-label">years leading multidisciplinary product roadmaps</span>
+                            <span class="stat-label">{{ 'ans de pilotage de feuilles de route produit pluridisciplinaires' if lang == 'fr' else 'years leading multidisciplinary product roadmaps' }}</span>
                         </div>
                         <div class="stat-card">
                             <span class="stat-value">20+</span>
-                            <span class="stat-label">contributors coordinated across research and software</span>
+                            <span class="stat-label">{{ 'contributeurs coordonnés entre recherche et logiciel' if lang == 'fr' else 'contributors coordinated across research and software' }}</span>
                         </div>
                         <div class="stat-card">
                             <span class="stat-value">70k+</span>
-                            <span class="stat-label">users through the Geco Air mobility application</span>
+                            <span class="stat-label">{{ 'utilisateurs de l’application de mobilité Geco Air' if lang == 'fr' else 'users through the Geco Air mobility application' }}</span>
                         </div>
                         <div class="stat-card">
                             <span class="stat-value">80M+</span>
-                            <span class="stat-label">kilometres analyzed in deployed mobility services</span>
+                            <span class="stat-label">{{ 'kilomètres analysés par des services de mobilité déployés' if lang == 'fr' else 'kilometres analyzed in deployed mobility services' }}</span>
                         </div>
                     </div>
                 </div>
 
-                <aside class="hero-panel">
+                <aside class="hero-panel hero-contact-panel">
                     <div class="panel-card">
-                        <p class="panel-title">Current focus</p>
-                        <ul class="focus-list">
-                            <li>Digital products combining mobility data, AI, modelling, APIs, and user-facing services</li>
-                            <li>SaaS platforms and decision-support tools for environmental and territorial use cases</li>
-                            <li>Research-to-product execution across machine learning, software, modelling, and partner delivery</li>
-                        </ul>
-                    </div>
-                    <div class="panel-card">
-                        <p class="panel-title">Profiles &amp; contact</p>
+                        <p class="panel-title">{{ 'Profils et contact' if lang == 'fr' else 'Profiles & contact' }}</p>
                         <div class="social-icons">
-                            <a aria-label="LinkedIn Profile" class="social-icon" href="https://www.linkedin.com/in/gsabiron" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                            <a aria-label="Email me" class="social-icon" href="mailto:guillaume.sabiron@ifpen.fr" target="_blank"><i class="fas fa-envelope"></i></a>
-                            <a aria-label="Google Scholar Profile" class="social-icon" href="https://scholar.google.com/citations?user=tZui0eYAAAAJ&hl=fr" target="_blank"><i class="fab fa-google"></i></a>
-                            <a aria-label="scanR Profile" class="social-icon" href="https://scanr.enseignementsup-recherche.gouv.fr/authors/idref188839755" target="_blank"><i class="fas fa-microscope"></i></a>
+                        <a aria-label="LinkedIn Profile" class="social-icon" href="https://www.linkedin.com/in/gsabiron" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a aria-label="Email me" class="social-icon" href="mailto:guillaume.sabiron@ifpen.fr"><i class="fas fa-envelope"></i></a>
+                        <a aria-label="Google Scholar Profile" class="social-icon" href="https://scholar.google.com/citations?user=tZui0eYAAAAJ&hl=fr" target="_blank" rel="noopener noreferrer"><i class="fab fa-google"></i></a>
+                        <a aria-label="scanR Profile" class="social-icon" href="https://scanr.enseignementsup-recherche.gouv.fr/authors/idref188839755" target="_blank" rel="noopener noreferrer"><i class="fas fa-microscope"></i></a>
                         </div>
-                        <p class="panel-note">Based in Lyon, France. I work at the intersection of scientific depth, product strategy, technical coordination, and international partnerships.</p>
+                        <p class="panel-note">{{ 'Basé à Lyon · stratégie produit, coordination technique et partenariats internationaux.' if lang == 'fr' else 'Based in Lyon · product strategy, technical coordination, and international partnerships.' }}</p>
                     </div>
                 </aside>
             </div>
             <div class="resume-section-content hero-story">
                 <p>
-                    Engineer from Grenoble INP and PhD from ISAE-SUPAERO, I built my career through robotics, control,
-                    perception, energy systems, connected mobility, and environmental intelligence.
+                    {{ 'Ingénieur Grenoble INP et docteur ISAE-SUPAERO, j’ai construit mon parcours dans la robotique, l’automatique, la perception, les systèmes énergétiques, la mobilité connectée et l’intelligence environnementale.' if lang == 'fr' else 'Engineer from Grenoble INP and PhD from ISAE-SUPAERO, I built my career through robotics, control, perception, energy systems, connected mobility, and environmental intelligence.' }}
                 </p>
                 <p>
-                    I am most effective where advanced R&amp;D must become an operational product: defining priorities,
-                    structuring roadmaps, coordinating disciplines, framing use cases with partners, and turning
-                    technical complexity into something demonstrable and useful.
+                    {{ 'Je suis particulièrement efficace là où une R&D avancée doit devenir un produit opérationnel : définir les priorités, structurer les feuilles de route, coordonner les disciplines, cadrer les usages avec les partenaires et rendre la complexité technique démontrable et utile.' if lang == 'fr' else 'I am most effective where advanced R&D must become an operational product: defining priorities, structuring roadmaps, coordinating disciplines, framing use cases with partners, and turning technical complexity into something demonstrable and useful.' }}
                 </p>
             </div>
         </section>
@@ -170,50 +184,59 @@
     </main>
 
 <script>
+    const sectionLanguage = '{{ lang }}';
+    const withLanguage = (route) => `${route}?lang=${sectionLanguage}`;
+
     // Load expertise section
-    fetch('{{ url_for("expertise") }}')
+    fetch(withLanguage('{{ url_for("expertise") }}'))
         .then(response => response.text())
         .then(data => {
             document.getElementById('expertise-content').innerHTML = data;
         });
 
     // Load projects section
-    fetch('{{ url_for("projects") }}')
+    fetch(withLanguage('{{ url_for("projects") }}'))
         .then(response => response.text())
         .then(data => {
             document.getElementById('projects-content').innerHTML = data;
         });
 
     // Load experience section
-    fetch('{{ url_for("experience") }}')
+    fetch(withLanguage('{{ url_for("experience") }}'))
         .then(response => response.text())
         .then(data => {
             document.getElementById('experience-content').innerHTML = data;
         });
 
     // Load education section
-    fetch('{{ url_for("education") }}')
+    fetch(withLanguage('{{ url_for("education") }}'))
         .then(response => response.text())
         .then(data => {
             document.getElementById('education-content').innerHTML = data;
         });
 
     // Load skills section
-    fetch('{{ url_for("skills") }}')
+    fetch(withLanguage('{{ url_for("skills") }}'))
         .then(response => response.text())
         .then(data => {
             document.getElementById('skills-content').innerHTML = data;
         });
 
     // Load references section
-    fetch('{{ url_for("references") }}')
+    fetch(withLanguage('{{ url_for("references") }}'))
         .then(response => response.text())
         .then(data => {
             document.getElementById('references-content').innerHTML = data;
+            if (typeof window.initializePublicationList === 'function') {
+                window.initializePublicationList();
+            }
+            if (typeof window.updatePublicationTimeline === 'function') {
+                window.updatePublicationTimeline();
+            }
         });
 
     // Load interests section
-    fetch('{{ url_for("interests") }}')
+    fetch(withLanguage('{{ url_for("interests") }}'))
         .then(response => response.text())
         .then(data => {
             document.getElementById('interests-content').innerHTML = data;
@@ -223,14 +246,14 @@
         });
 
     // Load awards section
-    fetch('{{ url_for("awards") }}')
+    fetch(withLanguage('{{ url_for("awards") }}'))
         .then(response => response.text())
         .then(data => {
             document.getElementById('awards-content').innerHTML = data;
         });
 
     // Load charts section
-    fetch('{{ url_for("charts") }}')
+    fetch(withLanguage('{{ url_for("charts") }}'))
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -248,10 +271,13 @@
         });
 
     // Load footer
-    fetch('{{ url_for("footer") }}')
+    fetch(withLanguage('{{ url_for("footer") }}'))
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer').innerHTML = data;
+            if (typeof window.updateCurrentYear === 'function') {
+                window.updateCurrentYear();
+            }
         });
 </script>
 

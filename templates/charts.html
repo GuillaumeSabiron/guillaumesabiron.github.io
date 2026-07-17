@@ -1,7 +1,7 @@
 <div class="chart-wrapper">
-    <p class="chart-kicker">Research output</p>
-    <h2 class="chart-title">Publication Timeline</h2>
-    <p class="chart-note">A quick snapshot of journal and conference publications based on the data currently embedded in the site.</p>
+    <p class="chart-kicker">{{ 'Production scientifique' if lang == 'fr' else 'Research output' }}</p>
+    <h2 class="chart-title">{{ 'Chronologie des publications' if lang == 'fr' else 'Publication Timeline' }}</h2>
+    <p class="chart-note">{{ 'Aperçu des articles de revue et de conférence actuellement intégrés au site.' if lang == 'fr' else 'A quick snapshot of journal and conference publications based on the data currently embedded in the site.' }}</p>
     <canvas id="myStackedChart"></canvas>
 </div>
 

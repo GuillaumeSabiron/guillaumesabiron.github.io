@@ -7,7 +7,15 @@
 // Scripts
 // 
 
+window.updateCurrentYear = function updateCurrentYear() {
+    document.querySelectorAll('[data-current-year]').forEach((element) => {
+        element.textContent = String(new Date().getFullYear());
+    });
+};
+
 window.addEventListener('DOMContentLoaded', event => {
+
+    window.updateCurrentYear();
 
     // Activate Bootstrap scrollspy on the main nav element
     const sideNav = document.body.querySelector('#sideNav');
@@ -46,6 +54,72 @@ function toggleDescription(target) {
     desc.style.display = isHidden ? 'block' : 'none';
     return false;
 }
+
+window.initializePublicationList = function initializePublicationList() {
+    const publicationLists = document.querySelectorAll('.publications-shell ul');
+
+    publicationLists.forEach((list) => {
+        const sectionHeading = list.previousElementSibling?.textContent || '';
+        const publicationType = sectionHeading.includes('Journal')
+            ? 'paper'
+            : sectionHeading.includes('Conference')
+                ? 'conference'
+                : sectionHeading.includes('Book chapters')
+                    ? 'book'
+                    : sectionHeading.includes('Thesis')
+                        ? 'thesis'
+                        : 'media';
+        const entries = Array.from(list.querySelectorAll(':scope > li'));
+
+        entries.forEach((entry) => {
+            const meta = entry.querySelector('.publication-meta');
+            const summary = entry.querySelector('.reference-title');
+            const match = meta?.textContent.match(/\b(19|20)\d{2}\b/);
+            const year = match ? Number(match[0]) : 0;
+
+            entry.dataset.publicationYear = String(year);
+            entry.dataset.publicationType = publicationType;
+
+            if (summary && year && !summary.querySelector('.publication-year')) {
+                const yearLabel = document.createElement('span');
+                yearLabel.className = 'publication-year';
+                yearLabel.textContent = String(year);
+                summary.append(yearLabel);
+            }
+        });
+
+        entries
+            .sort((a, b) => Number(b.dataset.publicationYear) - Number(a.dataset.publicationYear))
+            .forEach((entry) => list.append(entry));
+    });
+
+    const filters = document.querySelectorAll('[data-publication-filter]');
+    filters.forEach((filter) => {
+        if (filter.dataset.publicationFilterInitialized === 'true') return;
+
+        filter.dataset.publicationFilterInitialized = 'true';
+        filter.addEventListener('click', () => {
+            const selectedType = filter.dataset.publicationFilter;
+
+            document.querySelectorAll('.publications-shell li[data-publication-type]').forEach((entry) => {
+                entry.hidden = selectedType !== 'all' && entry.dataset.publicationType !== selectedType;
+            });
+
+            publicationLists.forEach((list) => {
+                const hasVisibleEntry = Array.from(list.children).some((entry) => !entry.hidden);
+                list.hidden = !hasVisibleEntry;
+                const heading = list.previousElementSibling;
+                if (heading) heading.hidden = !hasVisibleEntry;
+            });
+
+            filters.forEach((button) => {
+                const isActive = button === filter;
+                button.classList.toggle('is-active', isActive);
+                button.setAttribute('aria-pressed', String(isActive));
+            });
+        });
+    });
+};
 
 
 function applyStyles() {

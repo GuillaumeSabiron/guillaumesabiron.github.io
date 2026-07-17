@@ -126,6 +126,12 @@ def count_items_by_year(papers, patents):
 
 # Generate HTML for publication list
 def generate_html(papers):
+    papers = sorted(
+        papers,
+        key=lambda paper: int(str(paper.get('bib', {}).get('pub_year', '')).strip())
+        if str(paper.get('bib', {}).get('pub_year', '')).strip().isdigit() else 0,
+        reverse=True,
+    )
     html_template = """
     <!DOCTYPE html>
     <html lang="en">
@@ -177,7 +183,6 @@ def generate_html(papers):
             <div class="description" id="{id}" style="display: none;">
                 <p><strong>Date:</strong> {year}</p>
                 <p><strong>Authors:</strong> {authors}</p>
-                <p><strong>Type:</strong> {type}</p>
                 <p><strong>Abstract:</strong> {abstract}</p>
                 <p><a href="{link}" target="_blank">View Paper</a></p>
             </div>
@@ -199,7 +204,6 @@ def generate_html(papers):
             title=html.escape(bib.get('title', 'N/A')),
             year=html.escape(str(bib.get('pub_year', 'N/A'))),
             authors=html.escape(authors),
-            type=html.escape(bib.get('venue', 'N/A')),
             abstract=html.escape((bib.get('abstract', '')[:200] + '...') if bib.get('abstract') else 'N/A'),
             link=html.escape(paper.get('pub_url', '#'))
         )

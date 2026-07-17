@@ -1,5 +1,5 @@
 <div class="resume-section-content education-shell">
-            <h2 class="mb-5">Education</h2>
+            <h2 class="mb-5">{{ 'Formation' if lang == 'fr' else 'Education' }}</h2>
 
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5 timeline-entry">
                 <div class="flex-grow-1">
@@ -14,10 +14,10 @@
                 <div class="flex-grow-1">
                     <h3 class="mb-0">Specialization Semester in Control Theory</h3>
                                         <div class="subheading mb-3">
-                            <a href="https://www.control.lth.se/" target="_blank" style="text-decoration: none;">
+                            <a href="https://www.control.lth.se/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
                                 <img src="{{ url_for('static', filename='img/LTH-logo.png') }}" alt="LTH Logo" style="height: 50px; width: auto;">
                             </a>,
-                        <a href="https://www.google.com/maps?q=Lund,+Sweden" target="_blank">Lund</a>, Sweden
+                        <a href="https://www.google.com/maps?q=Lund,+Sweden" target="_blank" rel="noopener noreferrer">Lund</a>, Sweden
                     </div>
                 </div>
                 <div class="flex-shrink-0"><span class="text-primary">2010 - 2011</span></div>
@@ -27,10 +27,10 @@
                 <div class="flex-grow-1">
                     <h3 class="mb-0">Engineering Degree (MSc)</h3>
                     <div class="subheading mb-3">
-                            <a href="https://esisar.grenoble-inp.fr/" target="_blank" style="text-decoration: none;">
+                            <a href="https://esisar.grenoble-inp.fr/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
                                 <img src="{{ url_for('static', filename='img/esisar-logo.png') }}" alt="ESISAR Logo" style="height: 50px; width: auto;">
                             </a>,
-                        <a href="https://www.google.com/maps?q=Valence,+France" target="_blank">Valence</a>, France
+                        <a href="https://www.google.com/maps?q=Valence,+France" target="_blank" rel="noopener noreferrer">Valence</a>, France
                     </div>
                     <p>Electronics, Computer Science, and Control Theory (Specialization: Advanced Control).</p>
                     <p>Top of my year during three years, with Honours.</p>

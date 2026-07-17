@@ -1,5 +1,5 @@
 <div class="resume-section-content experience-shell">
-            <h2 class="mb-5">Experience</h2>
+            <h2 class="mb-5">{{ 'Expérience professionnelle' if lang == 'fr' else 'Experience' }}</h2>
 
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5 timeline-entry">
 
@@ -7,31 +7,19 @@
                     <h3 class="mb-0">R&D Project Leader</h3>
 
                     <div class="subheading mb-3">
-                            <a href="https://www.ifpen.fr" target="_blank">
-                                <img src="{{ url_for('static', filename='img/ifpen-logo.jpg') }}" alt="ESA Logo" style="height: 30px; width: auto;">
+                            <a href="https://www.ifpen.fr" target="_blank" rel="noopener noreferrer">
+                                <img src="{{ url_for('static', filename='img/ifpen-logo.jpg') }}" alt="IFP Energies nouvelles logo" style="height: 30px; width: auto;">
                             </a>
-                        <a href="https://www.google.com/maps?q=Solaize,+France" target="_blank">Solaize</a>, France
+                        <a href="https://www.google.com/maps?q=Solaize,+France" target="_blank" rel="noopener noreferrer">Solaize</a>, France
                     </div>
-                    <p>Connected Mobility – Development of digital solutions for connected mobility and air quality
-                        monitoring.</p>
+                    <p>Leading applied R&amp;D and digital-product initiatives at the intersection of connected mobility,
+                        emissions, air quality, data, and user-facing decision support.</p>
                     <ul>
-                        <li>Leadership of a strategic digital-product portfolio representing approximately 875 person-days and EUR 80k of annual external expenditure, from early framing to operational proof-of-concept stages.
-                        </li>
-                        <li>Functional leadership of a 20+ MSc and PhD contributor ecosystem across machine learning, modelling, back-end, front-end, data, and product delivery activities.
-                        </li>
-                        <li>Delivery of AI-based solutions for connected mobility and air quality, including Geco Air,
-                            APIs, webservices, dashboards, KPIs, and IoT-oriented components.
-                        </li>
-                        <li>Scientific and technical coordination across machine learning, back-end, front-end, and modeling teams.
-                        </li>
-                        <li>Definition of resources, staffing needs, priorities, and skills required to deliver technical roadmaps.
-                        </li>
-                        <li>Product definition, planning of research directions, and business development in support of innovation programs and external partnerships.</li>
-                        <li>Leadership of PLANET'AIR, a SaaS-oriented decision-support platform combining mobility data, environmental modelling, machine learning, APIs, and interactive services for territorial stakeholders.</li>
-                        <li>Development of partnerships and setup of multi-partner projects in an international context.
-                        </li>
-                        <li>Workshops, demonstrations, and feedback discussions with users, industrial partners, public authorities, airports, and European-project stakeholders to refine use cases and priorities.</li>
-                        <li>Contract management, client relationship steering, and contribution to tender preparation and negotiation.</li>
+                        <li>Lead the scientific and product roadmap for a multi-workstream portfolio, from early framing to operational demonstrators.</li>
+                        <li>Coordinate 20+ contributors across modelling, machine learning, data, backend, frontend, and product-delivery activities.</li>
+                        <li>Shape PLANET&rsquo;AIR: a decision-support platform that connects mobility scenarios, emissions, dispersion modelling, APIs, and interactive services for territorial users.</li>
+                        <li>Prioritize capabilities by balancing user value, scientific validity, and delivery feasibility; align research and software teams around shared milestones.</li>
+                        <li>Run demonstrations and feedback sessions with public-sector, industrial, airport, and European-project stakeholders to refine use cases and roadmaps.</li>
                     </ul>
                     <div class="ratio ratio-16x9 mt-4">
                         <iframe src="https://www.youtube.com/embed/qd4ZlmutXas"
@@ -44,23 +32,18 @@
 
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5 timeline-entry">
                 <div class="flex-grow-1">
-                    <h3 class="mb-0">Control Systems Research Engineer</h3>
+                    <h3 class="mb-0">Research Engineer</h3>
                     <div class="subheading mb-3">
-                            <a href="https://www.ifpen.fr" target="_blank" style="text-decoration: none;">
-                                <img src="{{ url_for('static', filename='img/ifpen-logo.jpg') }}" alt="ESA Logo" style="height: 30px; width: auto;">
+                            <a href="https://www.ifpen.fr" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+                                <img src="{{ url_for('static', filename='img/ifpen-logo.jpg') }}" alt="IFP Energies nouvelles logo" style="height: 30px; width: auto;">
                             </a>
-                        <a href="https://www.google.com/maps?q=Solaize,+France" target="_blank">Solaize</a>, France
+                        <a href="https://www.google.com/maps?q=Solaize,+France" target="_blank" rel="noopener noreferrer">Solaize</a>, France
                     </div>
-                    <p>Transport: HDV energetic diagnosis - Pollutant footprint - Connected vehicles, sustainable
-                        mobility.</p>
-                    <p>Wind: Wind LiDAR control & software development, Onshore/Offshore wind-field simulation
-                        tools.</p>
-                    <p>Wave: Design and experimental validation of MPC solutions on wave energy conversion systems.</p>
+                    <p>Applied research across transport emissions, connected mobility, wind-energy control, and wave-energy systems.</p>
                     <ul>
-                        <li>Research and engineering work across transport, wind energy, and wave energy applications.
-                        </li>
-                        <li>Management of engineers and students (MSc, PhD) in control, machine learning, and software development.</li>
-                        <li>Training coordination and contributions to international conferences, patents, workshops, and expert groups.</li>
+                        <li>Developed scientific methodologies and simulation tools for transport, wind, and wave-energy applications.</li>
+                        <li>Contributed to Geco Air by translating mobility and emissions models into accessible digital services.</li>
+                        <li>Worked with real mobility data and with research, software, and innovation teams to validate and disseminate results.</li>
                     </ul>
                 </div>
                 <div class="flex-shrink-0"><span class="text-primary">Oct. 2014 - Jan. 2021</span></div>
@@ -72,23 +55,23 @@
         <!-- Replace the subheading with clickable logos -->
         <div class="subheading mb-3 no-margin" style="margin-bottom: 0; padding-bottom: 0; line-height: 1;">
 
-            <a href="https://www.esa.int/" target="blank">
+            <a href="https://www.esa.int/" target="_blank" rel="noopener noreferrer">
                 <img src="{{ url_for('static', filename='img/esa-logo.png') }}" alt="ESA Logo" style="height: 120px; width: auto;">
             </a>
-            <a href="https://www.onera.fr/en" target="_blank">
+            <a href="https://www.onera.fr/en" target="_blank" rel="noopener noreferrer">
                 <img src="{{ url_for('static', filename='img/logo_onera.png') }}" alt="ONERA Logo" style="height: 35px; width: auto;">
             </a>
-            <a href="https://www.airbus.com/" target="_blank">
+            <a href="https://www.airbus.com/" target="_blank" rel="noopener noreferrer">
                 <img src="{{ url_for('static', filename='img/Airbus_logo.jpg') }}" alt="Airbus Logo" style="height: 40px; width: auto;">
             </a>
-            <a href="https://www.cnrs.fr/" target="_blank">
+            <a href="https://www.cnrs.fr/" target="_blank" rel="noopener noreferrer">
                 <img src="{{ url_for('static', filename='img/Logo_CNRS.png') }}" alt="CNRS Logo" style="height: 40px; width: auto;">
             </a>
         </div>
         <div class="subheading mb-3 no-margin" style="margin-bottom: 0; padding-bottom: 0; line-height: 1;">
-                        <a href="https://www.google.com/maps?q=Marseille,+France" target="_blank">Marseille</a>,
-                        <a href="https://www.google.com/maps?q=Toulouse,+France" target="_blank">Toulouse</a>, France;
-                        <a href="https://www.google.com/maps?q=Leiden" target="_blank">Leiden</a>, Netherlands
+                        <a href="https://www.google.com/maps?q=Marseille,+France" target="_blank" rel="noopener noreferrer">Marseille</a>,
+                        <a href="https://www.google.com/maps?q=Toulouse,+France" target="_blank" rel="noopener noreferrer">Toulouse</a>, France;
+                        <a href="https://www.google.com/maps?q=Leiden" target="_blank" rel="noopener noreferrer">Leiden</a>, Netherlands
         </div>
         <p>Design of a bio-inspired Guidance, Navigation and Control solution for safe and soft lunar landing.</p>
         <ul>
@@ -104,14 +87,14 @@
                 <div class="flex-grow-1">
                     <h3 class="mb-0">Teaching Activities (MSc)</h3>
                     <div class="subheading mb-3">
-                            <a href="https://www.isae-supaero.fr/en/" target="_blank" style="text-decoration: none;">
+                            <a href="https://www.isae-supaero.fr/en/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
                                 <img src="{{ url_for('static', filename='img/Logo_ISEA-Supaero.png') }}" alt="ISAE Logo" style="height: 30px; width: auto;">
                             </a>,
-                        <a href="https://www.google.com/maps?q=Marseille,+France" target="_blank">Marseille</a>, France
-                            <a href="https://ism.univ-amu.fr/en/biorob" target="_blank" style="text-decoration: none;">
+                        <a href="https://www.google.com/maps?q=Marseille,+France" target="_blank" rel="noopener noreferrer">Marseille</a>, France
+                            <a href="https://ism.univ-amu.fr/en/biorob" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
                                 <img src="{{ url_for('static', filename='img/amu_logo.jpg') }}" alt="AMU Logo" style="height: 50px; width: auto;">
                             </a>,
-                        <a href="https://www.google.com/maps?q=Toulouse,+France" target="_blank">Toulouse</a>, France
+                        <a href="https://www.google.com/maps?q=Toulouse,+France" target="_blank" rel="noopener noreferrer">Toulouse</a>, France
                     </div>
                     <p>Teaching in modelling, control, identification and analysis of linear systems, signal processing and
                         Filtering.</p>
@@ -123,10 +106,10 @@
                 <div class="flex-grow-1">
                     <h3 class="mb-0">Engineer Trainee</h3>
                     <div class="subheading mb-3">
-                            <a href="https://ism.univ-amu.fr/en/biorob" target="_blank" style="text-decoration: none;">
+                            <a href="https://ism.univ-amu.fr/en/biorob" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
                                 <img src="{{ url_for('static', filename='img/amu_logo.jpg') }}" alt="AMU Logo" style="height: 50px; width: auto;">
                             </a>,
-                        <a href="https://www.google.com/maps?q=Marseille,+France" target="_blank">Marseille</a>, France
+                        <a href="https://www.google.com/maps?q=Marseille,+France" target="_blank" rel="noopener noreferrer">Marseille</a>, France
                     </div>
                     <p>Design and implementation of a robust flight control law for an UAV.</p>
                 </div>
@@ -137,10 +120,10 @@
                 <div class="flex-grow-1">
                     <h3 class="mb-0">Industrial Project</h3>
                     <div class="subheading mb-3">
-                        <a href="https://legrand.fr" target="_blank" style="text-decoration: none;">
+                        <a href="https://legrand.fr" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
                                 <img src="{{ url_for('static', filename='img/logo_Legrand.png') }}" alt="Legrand Logo" style="height: 30px; width: auto;">
                             </a>,
-                        <a href="https://www.google.com/maps?q=Valence,+France" target="_blank">Valence</a>, France
+                        <a href="https://www.google.com/maps?q=Valence,+France" target="_blank" rel="noopener noreferrer">Valence</a>, France
                     </div>
                     <p>Indoor wireless video transmission technology review with focus on Ultra Wide Band.</p>
                 </div>
@@ -151,10 +134,10 @@
                 <div class="flex-grow-1">
                     <h3 class="mb-0">Research Trainee</h3>
                                         <div class="subheading mb-3">
-                        <a href="https://www.mica.edu.vn/index.php?lang=en" target="_blank" style="text-decoration: none;">
+                        <a href="https://www.mica.edu.vn/index.php?lang=en" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
                                 <img src="{{ url_for('static', filename='img/Logo-mica.gif') }}" alt="MICA Logo" style="height: 50px; width: auto;">
                             </a>,
-                        <a href="https://www.google.com/maps?q=Hanoï,+Vietnam" target="_blank">Hanoï</a>, Vietnam
+                        <a href="https://www.google.com/maps?q=Hanoï,+Vietnam" target="_blank" rel="noopener noreferrer">Hanoï</a>, Vietnam
                     </div>
                     <p>Study of a GPS localization solution based on open-source GIS.</p>
                 </div>
