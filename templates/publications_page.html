@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ 'Publications et communications de Guillaume Sabiron.' if lang == 'fr' else 'Publications and public contributions by Guillaume Sabiron.' }}">
+  <title>{{ 'Publications' }}, Guillaume Sabiron</title>
+  <link rel="alternate" hreflang="en" href="{{ url_for('publications', lang='en') }}">
+  <link rel="alternate" hreflang="fr" href="{{ url_for('publications', lang='fr') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio-overrides.css') }}">
+  <script src="{{ url_for('static', filename='js/scripts.js') }}" defer></script>
+</head>
+<body>
+  <header class="site-header"><a class="site-name" href="{{ url_for('home', lang=lang) }}">Guillaume Sabiron</a><nav class="site-menu site-menu-static" aria-label="{{ 'Navigation principale' if lang == 'fr' else 'Main navigation' }}"><a href="{{ url_for('home', lang=lang) }}#work">{{ 'Réalisations' if lang == 'fr' else 'Work' }}</a><a href="{{ url_for('home', lang=lang) }}#contact">Contact</a><span class="language-switcher"><a class="{{ 'is-active' if lang == 'en' else '' }}" href="{{ url_for('publications', lang='en') }}">EN</a><a class="{{ 'is-active' if lang == 'fr' else '' }}" href="{{ url_for('publications', lang='fr') }}">FR</a></span></nav></header>
+  <main class="section"><div class="content publications-page"><a class="back-link" href="{{ url_for('home', lang=lang) }}#insights">← {{ 'Retour à l’accueil' if lang == 'fr' else 'Back to home' }}</a><h1 class="visually-hidden">{{ 'Publications' }}</h1>{% include 'references.html' %}</div></main>
+  <footer><div class="content">© <span data-current-year></span> Guillaume Sabiron</div></footer>
+</body>
+</html>

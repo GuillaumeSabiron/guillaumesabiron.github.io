@@ -3,8 +3,6 @@ from __future__ import annotations
 import shutil
 from pathlib import Path
 
-from bs4 import BeautifulSoup
-
 from main import app
 
 
@@ -13,77 +11,21 @@ OUTPUT_DIR = PROJECT_ROOT / "docs"
 STATIC_SRC = PROJECT_ROOT / "static"
 STATIC_DEST = OUTPUT_DIR / "static"
 
-SECTION_ROUTES = {
-    "expertise-content": "/expertise",
-    "projects-content": "/projects",
-    "experience-content": "/experience",
-    "education-content": "/education",
-    "skills-content": "/skills",
-    "references-content": "/references",
-    "interests-content": "/interests",
-    "awards-content": "/awards",
-    "charts-content": "/charts",
-    "footer": "/footer",
-}
-
-
-def _fragment_nodes(fragment_html: str):
-    fragment_soup = BeautifulSoup(fragment_html, "html.parser")
-    return list(fragment_soup.contents)
-
-
-def _render_page(client, language: str, static_prefix: str, language_links: dict[str, str]) -> str:
-    index_html = client.get("/", query_string={"lang": language}).get_data(as_text=True)
-
-    soup = BeautifulSoup(index_html, "html.parser")
-
-    for target_id, route in SECTION_ROUTES.items():
-        target = soup.find(id=target_id)
-        if target is None:
-            raise ValueError(f"Missing target container: {target_id}")
-
-        fragment_html = client.get(route, query_string={"lang": language}).get_data(as_text=True)
-        target.clear()
-        for node in _fragment_nodes(fragment_html):
-            target.append(node)
-
-    for script in soup.find_all("script"):
-        script_text = script.get_text(strip=False)
-        if "fetch(withLanguage('/expertise'))" in script_text:
-            script.decompose()
-
-    init_script = soup.new_tag("script")
-    init_script.string = """
-document.addEventListener('DOMContentLoaded', function () {
-    if (typeof window.initializePublicationList === 'function') {
-        window.initializePublicationList();
-    }
-    if (typeof window.initializeMap === 'function') {
-        window.initializeMap();
-    }
-    if (typeof window.initializeChart === 'function') {
-        window.initializeChart();
-    }
-});
-""".strip()
-    soup.body.append(init_script)
-
-    rendered = str(soup)
+def _render_page(client, route: str, language: str, static_prefix: str, replacements: dict[str, str]) -> str:
+    rendered = client.get(route, query_string={"lang": language}).get_data(as_text=True)
     rendered = rendered.replace('href="/static/', f'href="{static_prefix}')
     rendered = rendered.replace('src="/static/', f'src="{static_prefix}')
-    for language_code, href in language_links.items():
-        rendered = rendered.replace(f'href="/?lang={language_code}"', f'href="{href}"')
+    for source, target in replacements.items():
+        rendered = rendered.replace(source, target)
     return rendered
 
 
 def build_static_site() -> Path:
     with app.test_client() as client:
-        rendered_en = _render_page(
-            client, "en", "static/", {"en": "./", "fr": "fr/"}
-        )
-        rendered_fr = _render_page(
-            client, "fr", "../static/", {"en": "../", "fr": "./"}
-        )
+        rendered_en = _render_page(client, "/", "en", "static/", {'href="/?lang=en"': 'href="./"', 'href="/?lang=fr"': 'href="fr/"', 'href="/publications/?lang=en"': 'href="publications/"', 'href="/publications/?lang=fr"': 'href="fr/publications/"'})
+        rendered_fr = _render_page(client, "/", "fr", "../static/", {'href="/?lang=en"': 'href="../"', 'href="/?lang=fr"': 'href="./"', 'href="/publications/?lang=en"': 'href="../publications/"', 'href="/publications/?lang=fr"': 'href="publications/"'})
+        publications_en = _render_page(client, "/publications/", "en", "../static/", {'href="/?lang=en"': 'href="../"', 'href="/?lang=fr"': 'href="../fr/"', 'href="/publications/?lang=en"': 'href="./"', 'href="/publications/?lang=fr"': 'href="../fr/publications/"'})
+        publications_fr = _render_page(client, "/publications/", "fr", "../../static/", {'href="/?lang=en"': 'href="../../"', 'href="/?lang=fr"': 'href="../"', 'href="/publications/?lang=en"': 'href="../../publications/"', 'href="/publications/?lang=fr"': 'href="./"'})
 
     if OUTPUT_DIR.exists():
         shutil.rmtree(OUTPUT_DIR)
@@ -99,10 +41,16 @@ def build_static_site() -> Path:
     (OUTPUT_DIR / "index.html").write_text(rendered_en, encoding="utf-8")
     (OUTPUT_DIR / ".nojekyll").write_text("", encoding="utf-8")
     (OUTPUT_DIR / "404.html").write_text(rendered_en, encoding="utf-8")
+    publications_dir = OUTPUT_DIR / "publications"
+    publications_dir.mkdir(exist_ok=True)
+    (publications_dir / "index.html").write_text(publications_en, encoding="utf-8")
     french_dir = OUTPUT_DIR / "fr"
     french_dir.mkdir(exist_ok=True)
     (french_dir / "index.html").write_text(rendered_fr, encoding="utf-8")
     (french_dir / "404.html").write_text(rendered_fr, encoding="utf-8")
+    french_publications_dir = french_dir / "publications"
+    french_publications_dir.mkdir(exist_ok=True)
+    (french_publications_dir / "index.html").write_text(publications_fr, encoding="utf-8")
 
     return OUTPUT_DIR
 

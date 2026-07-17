@@ -1,6 +1,22 @@
+import json
+from pathlib import Path
+
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
+PROJECT_ROOT = Path(__file__).resolve().parent
+
+
+def carousel_publications() -> list[dict[str, str | int]]:
+    """Expose only verified title/year metadata for the homepage carousel."""
+    source = json.loads((PROJECT_ROOT / "Guillaume_Sabiron_data.json").read_text(encoding="utf-8"))
+    publications = []
+    for item in source.get("papers", []):
+        bib = item.get("bib", {})
+        title, year = bib.get("title"), bib.get("pub_year")
+        if title and year:
+            publications.append({"title": title, "year": year})
+    return sorted(publications, key=lambda item: item["year"], reverse=True)
 
 
 def page_language() -> str:
@@ -17,8 +33,7 @@ def render_section(template_name: str):
 
 @app.route('/')
 def home():
-    #return render_template('index_mine.html')
-    return render_template('index.html', lang=page_language())
+    return render_template('index.html', lang=page_language(), carousel_papers=carousel_publications())
 
 
 @app.route('/header')
@@ -49,6 +64,10 @@ def skills():
 def references():
     return render_section('references.html')
 
+@app.route('/publications/')
+def publications():
+    return render_template('publications_page.html', lang=page_language())
+
 @app.route('/interests')
 def interests():
     return render_section('interests.html')
@@ -56,10 +75,6 @@ def interests():
 @app.route('/awards')
 def awards():
     return render_section('awards.html')
-
-@app.route('/charts')
-def charts():
-    return render_section('charts.html')
 
 @app.route('/footer')
 def footer():

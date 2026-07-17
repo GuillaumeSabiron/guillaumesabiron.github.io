@@ -1,0 +1,21 @@
+{
+  "description": "Personal travel reference data retained from the former interactive map. It is not professional project, client, partner, office, or residence data. The current site intentionally displays only a broad, non-identifying visual summary.",
+  "countries": [
+    {"code":"ALB","name_en":"Albania","name_fr":"Albanie","category":"personal-travel","display_on_map":true},
+    {"code":"CAN","name_en":"Canada","name_fr":"Canada","category":"personal-travel","display_on_map":true},
+    {"code":"CHL","name_en":"Chile","name_fr":"Chili","category":"personal-travel","display_on_map":true},
+    {"code":"CHN","name_en":"China","name_fr":"Chine","category":"personal-travel","display_on_map":true},
+    {"code":"DNK","name_en":"Denmark","name_fr":"Danemark","category":"personal-travel","display_on_map":true},
+    {"code":"EGY","name_en":"Egypt","name_fr":"Égypte","category":"personal-travel","display_on_map":true},
+    {"code":"GRC","name_en":"Greece","name_fr":"Grèce","category":"personal-travel","display_on_map":true},
+    {"code":"IND","name_en":"India","name_fr":"Inde","category":"personal-travel","display_on_map":true},
+    {"code":"ITA","name_en":"Italy","name_fr":"Italie","category":"personal-travel","display_on_map":true},
+    {"code":"KOR","name_en":"South Korea","name_fr":"Corée du Sud","category":"personal-travel","display_on_map":true},
+    {"code":"MAR","name_en":"Morocco","name_fr":"Maroc","category":"personal-travel","display_on_map":true},
+    {"code":"NOR","name_en":"Norway","name_fr":"Norvège","category":"personal-travel","display_on_map":true},
+    {"code":"TUN","name_en":"Tunisia","name_fr":"Tunisie","category":"personal-travel","display_on_map":true},
+    {"code":"TUR","name_en":"Turkey","name_fr":"Turquie","category":"personal-travel","display_on_map":true},
+    {"code":"USA","name_en":"United States","name_fr":"États-Unis","category":"personal-travel","display_on_map":true},
+    {"code":"SWE","name_en":"Sweden","name_fr":"Suède","category":"education","display_on_map":true}
+  ]
+}
