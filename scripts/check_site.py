@@ -33,6 +33,8 @@ def main() -> int:
         root / "fr" / "publications" / "index.html",
         root / "skills" / "index.html",
         root / "fr" / "skills" / "index.html",
+        root / "404.html",
+        root / "fr" / "404.html",
     ]
     errors: list[str] = []
     for page in pages:
@@ -50,8 +52,19 @@ def main() -> int:
         errors.extend(f"{page.relative_to(root)}: {item}" for item in audit.errors)
         if "YYYY-MM" in html or "lorem ipsum" in html.lower():
             errors.append(f"{page.relative_to(root)}: contains placeholder text")
+        if "skills-scroll" in html or "publication-carousel" in html:
+            errors.append(f"{page.relative_to(root)}: contains retired animated component")
         if "<title>" not in html or 'name="description"' not in html:
             errors.append(f"{page.relative_to(root)}: missing title or description")
+    required_assets = [
+        root / "static" / "documents" / "guillaume-sabiron-cv-en.pdf",
+        root / "static" / "documents" / "guillaume-sabiron-cv-fr.pdf",
+        root / "static" / "img" / "projects" / "planetair-project.avif",
+        root / "static" / "img" / "projects" / "geco-air-project.avif",
+        root / "static" / "img" / "projects" / "wec-control-project.avif",
+        root / "static" / "img" / "projects" / "phd-lunar-landing-project.avif",
+    ]
+    errors.extend(f"missing generated asset: {asset.relative_to(root)}" for asset in required_assets if not asset.exists())
     if errors:
         print("Static-site checks failed:", *errors, sep="\n- ")
         return 1

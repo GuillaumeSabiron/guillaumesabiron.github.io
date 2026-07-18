@@ -1,7 +1,7 @@
 <div class="resume-section-content publications-shell">
-    <h2 class="mb-4">{{ 'Publications' }}</h2>
+    <h2 class="mb-4">{{ 'Publications et contributions publiques' if lang == 'fr' else 'Publications and public contributions' }}</h2>
     <p class="section-intro">
-        {{ 'Cette section est synchronisée avec la liste de publications académiques de Guillaume Sabiron, mise à jour le 16 juillet 2026. Les titres et résumés scientifiques sont conservés dans leur langue de publication.' if lang == 'fr' else 'This section is synchronized with Guillaume Sabiron’s academic publication list as of July 16, 2026. The notes below are short editorial synopses written for the website, based on public abstracts or public conference metadata when available.' }}
+        {{ 'Articles évalués par les pairs, conférences, chapitres d’ouvrage, brevets et contributions publiques en robotique, énergie, mobilité et intelligence environnementale.' if lang == 'fr' else 'Peer-reviewed papers, conference contributions, book chapters, patents and public communication across robotics, energy, mobility and environmental intelligence.' }}
     </p>
 
     <div class="publication-filters" role="group" aria-label="{{ 'Filtrer les publications par type' if lang == 'fr' else 'Filter publications by type' }}">
@@ -9,6 +9,7 @@
         <button class="publication-filter" type="button" data-publication-filter="paper" aria-pressed="false">{{ 'Articles de revue' if lang == 'fr' else 'Journal papers' }}</button>
         <button class="publication-filter" type="button" data-publication-filter="conference" aria-pressed="false">{{ 'Conférences' }}</button>
         <button class="publication-filter" type="button" data-publication-filter="book" aria-pressed="false">{{ 'Chapitres d’ouvrage' if lang == 'fr' else 'Book chapters' }}</button>
+        <button class="publication-filter" type="button" data-publication-filter="patent" aria-pressed="false">{{ 'Brevets' if lang == 'fr' else 'Patents' }}</button>
         <button class="publication-filter" type="button" data-publication-filter="thesis" aria-pressed="false">{{ 'Thèse' if lang == 'fr' else 'Thesis' }}</button>
         <button class="publication-filter" type="button" data-publication-filter="media" aria-pressed="false">{{ 'Médias' if lang == 'fr' else 'Media' }}</button>
     </div>

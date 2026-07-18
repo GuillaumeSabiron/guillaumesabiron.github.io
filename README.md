@@ -1,96 +1,46 @@
-# Guillaume Sabiron — professional website
+# Guillaume Sabiron — professional portfolio
 
-This repository contains Guillaume Sabiron&rsquo;s professional website: an English-language digital CV and portfolio for R&amp;D leadership, applied AI, data products, connected mobility, and air quality.
-
-The existing architecture is intentionally lightweight: Flask and Jinja fragments for local development, then a static export for deployment. No frontend framework or database is required.
+Bilingual Flask and static portfolio presenting R&D leadership, applied AI, scientific systems, digital products, mobility and environmental intelligence. The homepage is narrative and project-led; detailed **Capabilities** and **Publications** pages provide supporting depth.
 
 ## Local development
-
-Create and activate the local virtual environment, then install the dependencies:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-Run the site locally:
 
 ```bash
 ./.venv/bin/python main.py
 ```
 
-Then open [http://127.0.0.1:5000](http://127.0.0.1:5000). If that port is already in use, Flask can be started on another port, for example:
+Open `http://127.0.0.1:5000` (French: `?lang=fr`).
+
+## Build and checks
 
 ```bash
-./.venv/bin/python -c "from main import app; app.run(debug=True, port=5001)"
-```
-
-## Static export for deployment
-
-Generate the static site used by GitHub Pages:
-
-```bash
+./.venv/bin/python -m compileall main.py build_static.py site_content.py utils scripts
 ./.venv/bin/python build_static.py
-```
-
-This command rebuilds:
-
-- `docs/index.html`
-- `docs/404.html`
-- `docs/fr/index.html` and `docs/fr/404.html` (French version)
-- `docs/static/`
-
-The live Flask site is English by default; append `?lang=fr` for French. The
-static export exposes the same version at `/fr/`. Scientific publication titles
-and abstracts stay in their original publication language.
-
-## Deployment build
-
-Build the deployable package only after the static export has been generated:
-
-```bash
+./.venv/bin/python scripts/check_site.py
 npm run build
 ```
 
-The command prepares:
+`build_static.py` generates the GitHub Pages output in `docs/`; `npm run build` packages it in `dist/`. Generated directories must never be edited directly.
 
-- `dist/site/` — static site assets
-- `dist/server/index.js` — fallback handler for static hosting
-- `dist/.openai/hosting.json` — hosting configuration
+## Content sources
 
-## Verification commands
+- `site_content.py` — public metrics, selected projects, capabilities and selected publications.
+- `Guillaume_Sabiron_data.json` — publication source data.
+- `data/travel_countries.json` — sole source for the personal travel summary.
+- `static/img/projects/` — optimised conceptual project illustrations (AVIF).
+- `static/documents/` — public French and English CV PDFs.
+- `templates/` — page shells and presentation only.
 
-The repository does not currently define lint or test scripts. The following checks are available:
+To add a project, define its bilingual text, image alt text, public links and image path in `site_content.py`; then add the optimised image under `static/img/projects/`. Do not describe conceptual illustrations as product screenshots or experimental results.
 
-```bash
-./.venv/bin/python -m compileall main.py build_static.py utils
-./.venv/bin/python build_static.py
-npm run build
-```
+## Architecture
 
-## Project structure
+- Flask and Jinja for local rendering
+- native HTML, CSS and JavaScript
+- static export in `docs/`
+- no frontend framework, database or chart/map library
 
-- `main.py` — Flask entry point
-- `templates/index.html` — single-page shell, navigation, hero, SEO metadata, and fragment loading
-- `templates/` — section content for experience, projects, education, skills, publications, positioning, and recognition
-- `static/` — CSS, JavaScript, and image assets
-- `build_static.py` — static export builder for GitHub Pages
-- `docs/` — generated deployment output
-- `scripts/build-static-site.mjs` — deployment-package builder
-- `utils/`, `data/` — publication helpers and cached source data
+GitHub Actions runs the static build and site checks on pull requests and pushes to `main`.
 
-## Updating content
+## Before publication
 
-- Update the professional profile and navigation in `templates/index.html`. Keep
-  the English and French Jinja variants aligned when changing visitor-facing copy.
-- Update experience, projects, education, skills, and availability in their corresponding file under `templates/`.
-- Update the curated public publication list in `templates/references.html`.
-- Use `extract_paper_patent.py` only to regenerate the legacy cached publication list from `data/papers_data.json`; it is not the source of the curated website copy.
-- Add images in `static/img/`. The static export copies these assets into `docs/static/img/`.
-
-Generated files in `docs/` and `dist/` should not be edited directly: update the source files first, then rebuild.
-
-## Before public deployment
-
-Confirm that public links, the professional email address, any project names, and quantitative claims are approved for publication. A CV download button should be added only once the corresponding PDF exists in `static/`.
+Confirm public links, email address, CV versions, project names, videos and quantitative claims. The project illustrations are conceptual; values visible inside them are not asserted as portfolio results.
