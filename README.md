@@ -1,6 +1,14 @@
 # Guillaume Sabiron — professional portfolio
 
-Bilingual Flask and static portfolio presenting R&D leadership, applied AI, scientific systems, digital products, mobility and environmental intelligence. The homepage is narrative and project-led; detailed **Capabilities** and **Publications** pages provide supporting depth.
+Bilingual Flask and static portfolio presenting R&D leadership, applied AI, scientific systems, digital products, mobility and environmental intelligence. The homepage is narrative and project-led; detailed **Skills** and **Publications** pages provide supporting depth.
+
+## Live website
+
+The public portfolio is available at:
+
+<https://guillaumesab.github.io/website_Sabiron/>
+
+GitHub Pages deploys the static site automatically after every push to `main`.
 
 ## Local development
 
@@ -37,9 +45,9 @@ To add a project, define its bilingual text, image alt text, public links and im
 - Flask and Jinja for local rendering
 - native HTML, CSS and JavaScript
 - static export in `docs/`
-- no frontend framework, database or chart/map library
+- no frontend framework or database; the travel map uses the bundled local Datamaps assets
 
-GitHub Actions runs the static build and site checks on pull requests and pushes to `main`.
+GitHub Actions runs static checks and deploys GitHub Pages on pushes to `main`.
 
 ## Before publication
 
