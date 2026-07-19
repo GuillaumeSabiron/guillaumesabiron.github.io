@@ -28,6 +28,8 @@ def build_static_site() -> Path:
         publications_fr = _render_page(client, "/publications/", "fr", "../../static/", {'href="/?lang=en"': 'href="../../"', 'href="/?lang=fr"': 'href="../"', 'href="/publications/?lang=en"': 'href="../../publications/"', 'href="/publications/?lang=fr"': 'href="./"'})
         skills_en = _render_page(client, "/skills/", "en", "../static/", {'href="/?lang=en"': 'href="../"', 'href="/?lang=fr"': 'href="../fr/"', 'href="/skills/?lang=en"': 'href="./"', 'href="/skills/?lang=fr"': 'href="../fr/skills/"'})
         skills_fr = _render_page(client, "/skills/", "fr", "../../static/", {'href="/?lang=en"': 'href="../../"', 'href="/?lang=fr"': 'href="../"', 'href="/skills/?lang=en"': 'href="../../skills/"', 'href="/skills/?lang=fr"': 'href="./"'})
+        not_found_en = _render_page(client, "/missing", "en", "static/", {'href="/?lang=en"': 'href="./"', 'href="/?lang=fr"': 'href="fr/"'})
+        not_found_fr = _render_page(client, "/missing", "fr", "../static/", {'href="/?lang=en"': 'href="../"', 'href="/?lang=fr"': 'href="./"'})
 
     if OUTPUT_DIR.exists():
         shutil.rmtree(OUTPUT_DIR)
@@ -42,14 +44,14 @@ def build_static_site() -> Path:
 
     (OUTPUT_DIR / "index.html").write_text(rendered_en, encoding="utf-8")
     (OUTPUT_DIR / ".nojekyll").write_text("", encoding="utf-8")
-    (OUTPUT_DIR / "404.html").write_text(rendered_en, encoding="utf-8")
+    (OUTPUT_DIR / "404.html").write_text(not_found_en, encoding="utf-8")
     publications_dir = OUTPUT_DIR / "publications"
     publications_dir.mkdir(exist_ok=True)
     (publications_dir / "index.html").write_text(publications_en, encoding="utf-8")
     french_dir = OUTPUT_DIR / "fr"
     french_dir.mkdir(exist_ok=True)
     (french_dir / "index.html").write_text(rendered_fr, encoding="utf-8")
-    (french_dir / "404.html").write_text(rendered_fr, encoding="utf-8")
+    (french_dir / "404.html").write_text(not_found_fr, encoding="utf-8")
     french_publications_dir = french_dir / "publications"
     french_publications_dir.mkdir(exist_ok=True)
     (french_publications_dir / "index.html").write_text(publications_fr, encoding="utf-8")

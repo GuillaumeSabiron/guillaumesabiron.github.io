@@ -1,24 +1,7 @@
-import json
-from pathlib import Path
-
 from flask import Flask, render_template, request
+from site_content import CAPABILITIES, METRICS, PROJECTS, featured_publications, travel_countries
 
 app = Flask(__name__)
-PROJECT_ROOT = Path(__file__).resolve().parent
-
-
-def carousel_publications() -> list[dict[str, str | int]]:
-    """Expose only verified title/year metadata for the homepage carousel."""
-    source = json.loads((PROJECT_ROOT / "Guillaume_Sabiron_data.json").read_text(encoding="utf-8"))
-    publications = []
-    for item in source.get("papers", []):
-        bib = item.get("bib", {})
-        title, year = bib.get("title"), bib.get("pub_year")
-        if title and year:
-            publications.append({"title": title, "year": year})
-    return sorted(publications, key=lambda item: item["year"], reverse=True)
-
-
 def page_language() -> str:
     """Return the supported language requested by the visitor.
 
@@ -33,7 +16,15 @@ def render_section(template_name: str):
 
 @app.route('/')
 def home():
-    return render_template('index.html', lang=page_language(), carousel_papers=carousel_publications())
+    return render_template(
+        'index.html',
+        lang=page_language(),
+        metrics=METRICS,
+        projects=PROJECTS,
+        capabilities=CAPABILITIES,
+        featured_publications=featured_publications(),
+        travel_countries=travel_countries(),
+    )
 
 
 @app.route('/header')
@@ -59,7 +50,7 @@ def education():
 @app.route('/skills')
 @app.route('/skills/')
 def skills():
-    return render_template('skills_page.html', lang=page_language())
+    return render_template('skills_page.html', lang=page_language(), capabilities=CAPABILITIES)
 
 @app.route('/references')
 def references():
@@ -68,6 +59,11 @@ def references():
 @app.route('/publications/')
 def publications():
     return render_template('publications_page.html', lang=page_language())
+
+
+@app.errorhandler(404)
+def not_found(_error):
+    return render_template('not_found.html', lang=page_language()), 404
 
 @app.route('/interests')
 def interests():
