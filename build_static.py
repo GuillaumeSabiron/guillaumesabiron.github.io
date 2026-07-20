@@ -26,8 +26,8 @@ def _static_links(html: str, language: str, depth: int) -> str:
     home = prefix or "./"
     french_home = f"{prefix}fr/" if depth == 0 else ("./" if language == "fr" and depth == 1 else f"{prefix}fr/")
     targets = {
-        "/?lang=en": home.rstrip("/") or ".",
-        "/?lang=fr": french_home.rstrip("/") or ".",
+        "/?lang=en": home,
+        "/?lang=fr": french_home,
         "/skills/?lang=en": f"{prefix}skills/",
         "/skills/?lang=fr": f"{prefix}fr/skills/",
         "/publications/?lang=en": f"{prefix}publications/",

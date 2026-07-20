@@ -20,43 +20,39 @@
 
     const travelMap = document.querySelector('[data-travel-map]');
     if (travelMap) {
-      const locations = JSON.parse(travelMap.dataset.locations || '[]');
-      const positions = {
-        CAN: [19, 30], USA: [23, 44], CHL: [28, 74], ALB: [52, 38], DNK: [50, 30],
-        NOR: [48, 23], SWE: [51, 25], ITA: [53, 43], GRC: [55, 45], TUN: [48, 51],
-        MAR: [43, 52], EGY: [59, 53], TUR: [59, 42], IND: [70, 52], CHN: [78, 40], KOR: [84, 41],
-      };
       const language = document.documentElement.lang;
-      const detail = document.createElement('p');
-      detail.className = 'travel-map-detail';
-      detail.setAttribute('aria-live', 'polite');
-      detail.textContent = language === 'fr' ? 'Sélectionnez un pays pour afficher sa catégorie.' : 'Select a country to view its category.';
-      const points = document.createElement('div');
-      points.className = 'travel-map-points';
-      locations.forEach((location) => {
-        const point = positions[location.code];
-        if (!point) return;
-        const button = document.createElement('button');
-        const personal = location.category === 'personal-travel';
-        const name = location[`name_${language}`] || location.name_en;
-        const category = personal
-          ? (language === 'fr' ? 'Voyage personnel' : 'Personal travel')
-          : (language === 'fr' ? 'Études' : 'Education');
-        button.type = 'button';
-        button.className = `travel-point ${personal ? 'is-personal' : 'is-education'}`;
-        button.style.left = `${point[0]}%`;
-        button.style.top = `${point[1]}%`;
-        button.setAttribute('aria-label', `${name} — ${category}`);
-        button.dataset.travelName = name;
-        button.dataset.travelCategory = category;
-        button.addEventListener('click', () => {
-          points.querySelectorAll('.travel-point').forEach((item) => item.classList.remove('is-selected'));
-          button.classList.add('is-selected');
-          detail.textContent = `${name} — ${category}`;
-        });
-        points.append(button);
+      const categoryLabel = (value) => ({ personal: language === 'fr' ? 'Personnel' : 'Personal travel', education: language === 'fr' ? 'Études' : 'Education', professional: language === 'fr' ? 'Professionnel' : 'Professional' })[value];
+      const loadMapLibre = () => new Promise((resolve, reject) => {
+        if (window.maplibregl) return resolve(window.maplibregl);
+        const script = document.createElement('script'); script.src = 'https://unpkg.com/maplibre-gl@^5.24.0/dist/maplibre-gl.js'; script.onload = () => resolve(window.maplibregl); script.onerror = reject; document.head.append(script);
       });
-      travelMap.replaceChildren(points, detail);
+      const startMap = async () => {
+        try {
+          const [maplibregl, travel, world] = await Promise.all([loadMapLibre(), fetch(travelMap.dataset.travelData).then((r) => r.json()), fetch(travelMap.dataset.worldData).then((r) => r.json())]);
+          const countries = travel.countries.map((item) => ({ ...item, category: item.category === 'personal-travel' ? 'personal' : item.category }));
+          const selectedNames = new Set(countries.map((item) => item.name_en));
+          const aliases = { 'United States': 'United States of America', 'South Korea': 'South Korea' };
+          const polygons = { type: 'FeatureCollection', features: world.features.filter((feature) => selectedNames.has(feature.properties.name) || Object.values(aliases).includes(feature.properties.name)).map((feature) => ({ ...feature, properties: { ...feature.properties, category: countries.find((item) => item.name_en === feature.properties.name || aliases[item.name_en] === feature.properties.name)?.category || 'personal' } })) };
+          const points = { type: 'FeatureCollection', features: travel.places.map((place) => ({ type: 'Feature', properties: { ...place, category_label: categoryLabel(place.category) }, geometry: { type: 'Point', coordinates: [place.longitude, place.latitude] } })) };
+          const map = new maplibregl.Map({ container: travelMap, style: 'https://tiles.openfreemap.org/styles/liberty', center: [12, 35], zoom: 1.1, attributionControl: true });
+          map.addControl(new maplibregl.NavigationControl(), 'top-right'); map.addControl(new maplibregl.FullscreenControl(), 'top-right');
+          const bounds = new maplibregl.LngLatBounds(); points.features.forEach((feature) => bounds.extend(feature.geometry.coordinates));
+          const fit = () => map.fitBounds(bounds, { padding: 52, maxZoom: 4, duration: reducedMotion ? 0 : 500 });
+          map.on('load', () => {
+            map.addSource('travel-countries', { type: 'geojson', data: polygons }); map.addSource('travel-places', { type: 'geojson', data: points });
+            map.addLayer({ id: 'travel-country-fill', type: 'fill', source: 'travel-countries', paint: { 'fill-color': ['match', ['get', 'category'], 'education', '#2f77bc', '#1a907f'], 'fill-opacity': .52 } });
+            map.addLayer({ id: 'travel-country-line', type: 'line', source: 'travel-countries', paint: { 'line-color': '#ffffff', 'line-width': 1.2 } });
+            map.addLayer({ id: 'travel-place', type: 'circle', source: 'travel-places', paint: { 'circle-radius': 7, 'circle-color': ['match', ['get', 'category'], 'education', '#2f77bc', '#7b56bb'], 'circle-stroke-color': '#fff', 'circle-stroke-width': 2 } });
+            const popup = new maplibregl.Popup({ closeButton: true, closeOnClick: true });
+            map.on('click', 'travel-place', (event) => { const p = event.features[0].properties; popup.setLngLat(event.lngLat).setHTML(`<strong>${p.city}</strong><br>${p.category_label}<br>${p.period}<br>${language === 'fr' ? p.label_fr : p.label_en}`).addTo(map); });
+            map.on('click', 'travel-country-fill', (event) => { const name = event.features[0].properties.name; const country = countries.find((item) => item.name_en === name || aliases[item.name_en] === name); popup.setLngLat(event.lngLat).setHTML(`<strong>${language === 'fr' ? country.name_fr : country.name_en}</strong><br>${categoryLabel(country.category)}`).addTo(map); });
+            ['travel-place', 'travel-country-fill'].forEach((id) => { map.on('mouseenter', id, () => map.getCanvas().style.cursor = 'pointer'); map.on('mouseleave', id, () => map.getCanvas().style.cursor = ''); }); fit();
+            document.querySelectorAll('[data-map-filter]').forEach((button) => button.addEventListener('click', () => { const value = button.dataset.mapFilter; map.setFilter('travel-country-fill', value === 'all' ? null : ['==', ['get', 'category'], value]); map.setFilter('travel-country-line', value === 'all' ? null : ['==', ['get', 'category'], value]); map.setFilter('travel-place', value === 'all' ? null : ['==', ['get', 'category'], value]); document.querySelectorAll('[data-map-filter]').forEach((item) => item.classList.toggle('is-active', item === button)); }));
+            document.querySelector('[data-map-fit]')?.addEventListener('click', fit);
+          });
+        } catch (_) { travelMap.classList.add('map-unavailable'); travelMap.textContent = language === 'fr' ? 'La carte n’a pas pu être chargée. Consultez la liste accessible ci-dessous.' : 'The map could not load. Please use the accessible list below.'; }
+      };
+      new IntersectionObserver((entries, observer) => { if (entries.some((entry) => entry.isIntersecting)) { observer.disconnect(); startMap(); } }, { rootMargin: '300px' }).observe(travelMap);
     }
 
     const lists = document.querySelectorAll('.publications-shell ul');
@@ -68,6 +64,16 @@
         entry.dataset.publicationYear = entry.textContent.match(/\b(?:19|20)\d{2}\b/)?.[0] || '0';
       });
       [...list.children].sort((a, b) => Number(b.dataset.publicationYear) - Number(a.dataset.publicationYear)).forEach((entry) => list.append(entry));
+      [...list.querySelectorAll('.reference-item')].forEach((entry) => {
+        const summary = entry.querySelector('.reference-title');
+        const meta = entry.querySelector('.publication-meta');
+        if (summary && meta && !summary.querySelector('.reference-scan-meta')) {
+          const scanMeta = document.createElement('span');
+          scanMeta.className = 'reference-scan-meta';
+          scanMeta.textContent = meta.textContent.replace(/\s+/g, ' ').trim();
+          summary.append(scanMeta);
+        }
+      });
     });
     document.querySelectorAll('[data-publication-filter]').forEach((button) => button.addEventListener('click', () => {
       const selected = button.dataset.publicationFilter;

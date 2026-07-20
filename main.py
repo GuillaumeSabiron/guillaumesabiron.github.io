@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from site_content import CAPABILITIES, METRICS, PROJECTS, featured_publications, travel_countries
+from site_content import CAPABILITIES, METRICS, PLANETAIR_WORKFLOW, PROJECTS, SKILL_AREAS, featured_publications, travel_countries
 
 app = Flask(__name__)
 SITE_URL = "https://guillaumesabiron.github.io"
@@ -31,6 +31,7 @@ def home():
         capabilities=CAPABILITIES,
         featured_publications=featured_publications(),
         travel_countries=travel_countries(),
+        planetair_workflow=PLANETAIR_WORKFLOW,
     )
 
 
@@ -57,7 +58,7 @@ def education():
 @app.route('/skills')
 @app.route('/skills/')
 def skills():
-    return render_template('skills_page.html', lang=page_language(), capabilities=CAPABILITIES)
+    return render_template('skills_page.html', lang=page_language(), capabilities=CAPABILITIES, skill_areas=SKILL_AREAS)
 
 @app.route('/references')
 def references():
