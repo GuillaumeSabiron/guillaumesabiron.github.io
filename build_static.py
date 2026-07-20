@@ -63,6 +63,11 @@ def build_static_site() -> Path:
         ignore=shutil.ignore_patterns(".DS_Store", "d3.v3.min.js", "topojson.v1.min.js", "datamaps.world.min.js"),
         dirs_exist_ok=True,
     )
+    # Travel locations are maintained with the other structured content, then
+    # copied into the static asset tree for the client-side MapLibre map.
+    travel_data_dest = STATIC_DEST / "data"
+    travel_data_dest.mkdir(exist_ok=True)
+    shutil.copy2(PROJECT_ROOT / "data" / "travel_countries.json", travel_data_dest / "travel_countries.json")
 
     (OUTPUT_DIR / "index.html").write_text(rendered_en, encoding="utf-8")
     (OUTPUT_DIR / ".nojekyll").write_text("", encoding="utf-8")
