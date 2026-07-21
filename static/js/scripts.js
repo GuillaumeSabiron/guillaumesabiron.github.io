@@ -22,6 +22,11 @@
     if (travelMap) {
       const language = document.documentElement.lang;
       const categoryLabel = (value) => ({ personal: language === 'fr' ? 'Personnel' : 'Personal travel', education: language === 'fr' ? 'Études' : 'Education', professional: language === 'fr' ? 'Professionnel' : 'Professional' })[value];
+      const categoryLabels = (values) => values.map(categoryLabel).join(' · ');
+      const normaliseCategories = (item) => {
+        const categories = item.categories || [item.category === 'personal-travel' ? 'personal' : item.category];
+        return { ...item, categories, category: categories.includes('professional') ? 'professional' : categories.includes('education') ? 'education' : 'personal' };
+      };
       const loadMapLibre = () => new Promise((resolve, reject) => {
         if (window.maplibregl) return resolve(window.maplibregl);
         const script = document.createElement('script'); script.src = `${document.documentElement.dataset.staticRoot || '/static'}/vendor/maplibre-gl.js`; script.onload = () => window.maplibregl ? resolve(window.maplibregl) : reject(new Error('Map library unavailable')); script.onerror = () => reject(new Error('Map library could not load')); document.head.append(script);
@@ -29,11 +34,15 @@
       const startMap = async () => {
         try {
           const [maplibregl, travel, world] = await Promise.all([loadMapLibre(), fetch(travelMap.dataset.travelData).then((r) => r.json()), fetch(travelMap.dataset.worldData).then((r) => r.json())]);
-          const countries = travel.countries.map((item) => ({ ...item, category: item.category === 'personal-travel' ? 'personal' : item.category }));
+          const countries = travel.countries.map(normaliseCategories);
+          travelMap.closest('figure')?.querySelectorAll('figcaption li').forEach((item, index) => {
+            const country = countries[index];
+            if (country) item.textContent = `${language === 'fr' ? country.name_fr : country.name_en} · ${categoryLabels(country.categories)}`;
+          });
           const selectedNames = new Set(countries.map((item) => item.name_en));
           const aliases = { 'United States': 'United States of America', 'South Korea': 'South Korea' };
-          const polygons = { type: 'FeatureCollection', features: world.features.filter((feature) => selectedNames.has(feature.properties.name) || Object.values(aliases).includes(feature.properties.name)).map((feature) => ({ ...feature, properties: { ...feature.properties, category: countries.find((item) => item.name_en === feature.properties.name || aliases[item.name_en] === feature.properties.name)?.category || 'personal' } })) };
-          const points = { type: 'FeatureCollection', features: travel.places.map((place) => ({ type: 'Feature', properties: { ...place, category_label: categoryLabel(place.category) }, geometry: { type: 'Point', coordinates: [place.longitude, place.latitude] } })) };
+          const polygons = { type: 'FeatureCollection', features: world.features.filter((feature) => selectedNames.has(feature.properties.name) || Object.values(aliases).includes(feature.properties.name)).map((feature) => { const country = countries.find((item) => item.name_en === feature.properties.name || aliases[item.name_en] === feature.properties.name); return { ...feature, properties: { ...feature.properties, category: country?.category || 'personal', categories: (country?.categories || ['personal']).join(',') } }; }) };
+          const points = { type: 'FeatureCollection', features: travel.places.map((place) => { const item = normaliseCategories(place); return { type: 'Feature', properties: { ...item, categories: item.categories.join(','), category_label: categoryLabels(item.categories) }, geometry: { type: 'Point', coordinates: [item.longitude, item.latitude] } }; }) };
           const map = new maplibregl.Map({ container: travelMap, style: 'https://tiles.openfreemap.org/styles/liberty', center: [12, 35], zoom: 1.1, attributionControl: true });
           map.addControl(new maplibregl.NavigationControl(), 'top-right'); map.addControl(new maplibregl.FullscreenControl(), 'top-right');
           const bounds = new maplibregl.LngLatBounds(); points.features.forEach((feature) => bounds.extend(feature.geometry.coordinates));
@@ -46,9 +55,9 @@
             map.addLayer({ id: 'travel-place', type: 'circle', source: 'travel-places', paint: { 'circle-radius': 7, 'circle-color': ['match', ['get', 'category'], 'education', '#2f77bc', '#7b56bb'], 'circle-stroke-color': '#fff', 'circle-stroke-width': 2 } });
             const popup = new maplibregl.Popup({ closeButton: true, closeOnClick: true });
             map.on('click', 'travel-place', (event) => { const p = event.features[0].properties; popup.setLngLat(event.lngLat).setHTML(`<strong>${p.city}</strong><br>${p.category_label}<br>${p.period}<br>${language === 'fr' ? p.label_fr : p.label_en}`).addTo(map); });
-            map.on('click', 'travel-country-fill', (event) => { const name = event.features[0].properties.name; const country = countries.find((item) => item.name_en === name || aliases[item.name_en] === name); popup.setLngLat(event.lngLat).setHTML(`<strong>${language === 'fr' ? country.name_fr : country.name_en}</strong><br>${categoryLabel(country.category)}`).addTo(map); });
+            map.on('click', 'travel-country-fill', (event) => { const name = event.features[0].properties.name; const country = countries.find((item) => item.name_en === name || aliases[item.name_en] === name); popup.setLngLat(event.lngLat).setHTML(`<strong>${language === 'fr' ? country.name_fr : country.name_en}</strong><br>${categoryLabels(country.categories)}`).addTo(map); });
             ['travel-place', 'travel-country-fill'].forEach((id) => { map.on('mouseenter', id, () => map.getCanvas().style.cursor = 'pointer'); map.on('mouseleave', id, () => map.getCanvas().style.cursor = ''); }); showWorld();
-            document.querySelectorAll('[data-map-filter]').forEach((button) => button.addEventListener('click', () => { const value = button.dataset.mapFilter; map.setFilter('travel-country-fill', value === 'all' ? null : ['==', ['get', 'category'], value]); map.setFilter('travel-country-line', value === 'all' ? null : ['==', ['get', 'category'], value]); map.setFilter('travel-place', value === 'all' ? null : ['==', ['get', 'category'], value]); document.querySelectorAll('[data-map-filter]').forEach((item) => item.classList.toggle('is-active', item === button)); }));
+            document.querySelectorAll('[data-map-filter]').forEach((button) => button.addEventListener('click', () => { const value = button.dataset.mapFilter; const filter = value === 'all' ? null : ['in', value, ['get', 'categories']]; map.setFilter('travel-country-fill', filter); map.setFilter('travel-country-line', filter); map.setFilter('travel-place', filter); document.querySelectorAll('[data-map-filter]').forEach((item) => item.classList.toggle('is-active', item === button)); }));
             document.querySelector('[data-map-fit]')?.addEventListener('click', fit);
           });
         } catch (_) { travelMap.classList.add('map-unavailable'); travelMap.textContent = language === 'fr' ? 'La carte n’a pas pu être chargée. Consultez la liste accessible ci-dessous.' : 'The map could not load. Please use the accessible list below.'; }

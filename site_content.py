@@ -94,4 +94,13 @@ def featured_publications() -> list[dict]:
 
 
 def travel_countries() -> list[dict]:
-    return [item for item in json.loads((ROOT / "data" / "travel_countries.json").read_text(encoding="utf-8"))["countries"] if item.get("display_on_map")]
+    labels = {
+        "en": {"personal": "Personal travel", "education": "Education", "professional": "Professional"},
+        "fr": {"personal": "Personnel", "education": "Études", "professional": "Professionnel"},
+    }
+    countries = json.loads((ROOT / "data" / "travel_countries.json").read_text(encoding="utf-8"))["countries"]
+    for country in countries:
+        categories = country.get("categories", [country.get("category", "personal-travel").replace("-travel", "")])
+        country["category_label_en"] = " · ".join(labels["en"][category] for category in categories)
+        country["category_label_fr"] = " · ".join(labels["fr"][category] for category in categories)
+    return [item for item in countries if item.get("display_on_map")]
