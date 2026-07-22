@@ -75,6 +75,8 @@ def main() -> int:
             errors.append(f"{page.relative_to(root)}: query-string language link remains")
         if '<ul></ul>' in html:
             errors.append(f"{page.relative_to(root)}: empty list remains")
+        if "static.cloudflareinsights.com/beacon.min.js" not in html:
+            errors.append(f"{page.relative_to(root)}: missing analytics beacon")
     required_assets = [
         root / "static" / "documents" / "guillaume-sabiron-cv-en.pdf",
         root / "static" / "documents" / "guillaume-sabiron-cv-fr.pdf",

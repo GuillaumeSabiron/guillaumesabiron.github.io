@@ -14,6 +14,7 @@
   <title>{{ 'Compétences' if lang == 'fr' else 'Skills' }} · Guillaume Sabiron</title>
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio-overrides.css') }}">
+  {% include 'analytics.html' %}
   <script src="{{ url_for('static', filename='js/scripts.js') }}" defer></script>
 </head>
 <body>
@@ -27,5 +28,6 @@
   </header>
   <main id="main-content" class="section" tabindex="-1"><div class="content">{% include 'skills.html' %}</div></main>
   {% include 'footer.html' %}
+  {% include 'analytics_notice.html' %}
 </body>
 </html>

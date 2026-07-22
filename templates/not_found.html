@@ -4,7 +4,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{ 'Page introuvable sur le portfolio de Guillaume Sabiron.' if lang == 'fr' else 'Page not found on Guillaume Sabiron’s portfolio.' }}">
   <title>{{ 'Page introuvable' if lang == 'fr' else 'Page not found' }} · Guillaume Sabiron</title><meta name="robots" content="noindex"><link rel="canonical" href="{{ site_url }}{{ '/fr/404.html' if lang == 'fr' else '/404.html' }}">
-  <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}"><link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio-overrides.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}"><link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio-overrides.css') }}">{% include 'analytics.html' %}
 </head>
 <body><main class="section"><div class="content publications-shell"><p class="eyebrow">404</p><h1>{{ 'Page introuvable' if lang == 'fr' else 'Page not found' }}</h1><p class="section-intro">{{ 'La page demandée n’existe pas.' if lang == 'fr' else 'The requested page does not exist.' }}</p><a class="button primary" href="{{ url_for('home', lang=lang) }}">{{ 'Retourner au portfolio de Guillaume Sabiron' if lang == 'fr' else 'Return to Guillaume Sabiron’s portfolio' }}</a></div></main></body>
 </html>
