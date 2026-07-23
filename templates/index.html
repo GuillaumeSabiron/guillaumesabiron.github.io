@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio-overrides.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='vendor/maplibre-gl.css') }}">
   {% include 'analytics.html' %}
-  <script src="{{ url_for('static', filename='js/scripts.js') }}?v=20260723" defer></script>
+  <script src="{{ url_for('static', filename='js/scripts.js') }}?v=20260724" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","url":"{{ site_url }}{{ '/fr/' if lang == 'fr' else '/' }}","mainEntity":{"@type":"Person","name":"Guillaume Sabiron","url":"{{ site_url }}/","image":"{{ site_url }}/static/img/GS2.png","description":"{{ 'Responsable R&D et produits scientifiques, IA appliquée, plateformes data et systèmes complexes.' if lang == 'fr' else 'R&D and scientific product leader working across applied AI, data platforms and complex systems.' }}","jobTitle":"{{ 'Responsable R&D et produits scientifiques' if lang == 'fr' else 'R&D and Scientific Product Leader' }}","address":{"@type":"PostalAddress","addressLocality":"Lyon","addressCountry":"FR"},"worksFor":{"@type":"Organization","name":"IFPEN"},"sameAs":["https://www.linkedin.com/in/gsabiron","https://github.com/GuillaumeSabiron","https://scholar.google.com/citations?user=tZui0eYAAAAJ&hl=fr","https://scanr.enseignementsup-recherche.gouv.fr/authors/idref188839755"]}}</script>
   <title>Guillaume Sabiron · {{ 'Responsable R&D, IA appliquée et produits numériques' if lang == 'fr' else 'R&D, Applied AI & Digital Product Leader' }}</title>
 </head>

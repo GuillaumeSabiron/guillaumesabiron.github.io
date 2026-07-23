@@ -78,7 +78,6 @@
             attributionControl: true,
             // Keep a single copy of the world at low zoom levels.
             renderWorldCopies: false,
-            maxBounds: [[-180, -85], [180, 85]],
           });
           map.addControl(new maplibregl.NavigationControl(), 'top-right'); map.addControl(new maplibregl.FullscreenControl(), 'top-right');
           const bounds = new maplibregl.LngLatBounds(); points.features.forEach((feature) => bounds.extend(feature.geometry.coordinates));

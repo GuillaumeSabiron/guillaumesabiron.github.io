@@ -10,7 +10,7 @@
   <link rel="alternate" hreflang="en" href="{{ site_url }}/publications/"><link rel="alternate" hreflang="fr" href="{{ site_url }}/fr/publications/"><link rel="alternate" hreflang="x-default" href="{{ site_url }}/publications/">
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio-overrides.css') }}">{% include 'analytics.html' %}
-  <script src="{{ url_for('static', filename='js/scripts.js') }}?v=20260723" defer></script>
+  <script src="{{ url_for('static', filename='js/scripts.js') }}?v=20260724" defer></script>
 </head>
 <body><a class="skip-link" href="#main-content">{{ 'Aller au contenu principal' if lang == 'fr' else 'Skip to main content' }}</a>
   <header class="site-header"><a class="site-name" href="{{ url_for('home', lang=lang) }}">Guillaume Sabiron</a><nav class="site-menu site-menu-static" aria-label="{{ 'Navigation principale' if lang == 'fr' else 'Main navigation' }}"><a href="{{ url_for('home', lang=lang) }}#work">{{ 'Réalisations' if lang == 'fr' else 'Work' }}</a><a href="{{ url_for('home', lang=lang) }}#contact">Contact</a><span class="language-switcher" aria-label="{{ 'Sélecteur de langue' if lang == 'fr' else 'Language selector' }}"><a class="{{ 'is-active' if lang == 'en' else '' }}" href="{{ url_for('publications', lang='en') }}" hreflang="en" lang="en"{% if lang == 'en' %} aria-current="true"{% endif %}>EN</a><a class="{{ 'is-active' if lang == 'fr' else '' }}" href="{{ url_for('publications', lang='fr') }}" hreflang="fr" lang="fr"{% if lang == 'fr' %} aria-current="true"{% endif %}>FR</a></span></nav></header>
