@@ -92,8 +92,16 @@
             map.addLayer({ id: 'travel-country-line', type: 'line', source: 'travel-countries', paint: { 'line-color': '#ffffff', 'line-width': 1.2 } });
             map.addLayer({ id: 'travel-place', type: 'circle', source: 'travel-places', paint: { 'circle-radius': 7, 'circle-color': ['match', ['get', 'category'], 'lived', '#2d9763', 'professional', '#236fbd', 'education', '#2d9763', '#7b56bb'], 'circle-stroke-color': '#fff', 'circle-stroke-width': 2 } });
             const popup = new maplibregl.Popup({ closeButton: true, closeOnClick: true });
-            map.on('click', 'travel-place', (event) => { const p = event.features[0].properties; popup.setLngLat(event.lngLat).setHTML(`<strong>${p.city}</strong><br>${p.category_label}<br>${p.period}<br>${language === 'fr' ? p.label_fr : p.label_en}`).addTo(map); });
-            map.on('click', 'travel-country-fill', (event) => { const name = event.features[0].properties.name; const country = countries.find((item) => item.name_en === name || aliases[item.name_en] === name); popup.setLngLat(event.lngLat).setHTML(`<strong>${language === 'fr' ? country.name_fr : country.name_en}</strong><br>${categoryLabels(country.categories)}`).addTo(map); });
+            const showPlace = (feature, lngLat) => { const p = feature.properties; popup.setLngLat(lngLat).setHTML(`<strong>${p.city}</strong><br>${p.category_label}${p.period ? `<br>${p.period}` : ''}${(language === 'fr' ? p.label_fr : p.label_en) ? `<br>${language === 'fr' ? p.label_fr : p.label_en}` : ''}`).addTo(map); };
+            const showCountry = (feature, lngLat) => { const name = feature.properties.name; const country = countries.find((item) => item.name_en === name || aliases[item.name_en] === name); if (country) popup.setLngLat(lngLat).setHTML(`<strong>${language === 'fr' ? country.name_fr : country.name_en}</strong><br>${categoryLabels(country.categories)}`).addTo(map); };
+            // Both the country fill and a city circle can match the same click. Query the
+            // circle first so the precise city always wins over the background country.
+            map.on('click', (event) => {
+              const place = map.queryRenderedFeatures(event.point, { layers: ['travel-place'] })[0];
+              if (place) { showPlace(place, event.lngLat); return; }
+              const country = map.queryRenderedFeatures(event.point, { layers: ['travel-country-fill'] })[0];
+              if (country) showCountry(country, event.lngLat);
+            });
             ['travel-place', 'travel-country-fill'].forEach((id) => { map.on('mouseenter', id, () => map.getCanvas().style.cursor = 'pointer'); map.on('mouseleave', id, () => map.getCanvas().style.cursor = ''); }); showWorld();
             const legend = document.createElement('p'); legend.className = 'map-legend'; legend.innerHTML = `<span class="map-legend-work">${categoryLabel('professional')}</span><span class="map-legend-lived">${categoryLabel('lived')}</span><span class="map-legend-personal">${categoryLabel('personal')}</span><span class="map-legend-multiple">${language === 'fr' ? 'Hachures : plusieurs motifs' : 'Stripes: multiple reasons'}</span>`; travelMap.before(legend);
             document.querySelectorAll('[data-map-filter]').forEach((button) => button.addEventListener('click', () => { const value = button.dataset.mapFilter; const filter = value === 'all' ? null : ['in', value, ['get', 'categories']]; map.setFilter('travel-country-fill', filter); map.setFilter('travel-country-line', filter); map.setFilter('travel-place', filter); document.querySelectorAll('[data-map-filter]').forEach((item) => item.classList.toggle('is-active', item === button)); }));
