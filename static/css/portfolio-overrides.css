@@ -64,6 +64,10 @@ h3 { margin-bottom:.65rem; font-size:1.22rem; letter-spacing:-.025em; line-heigh
 .narrative article { padding:1.2rem 0; border-bottom:1px solid var(--line); }
 .narrative p { margin-bottom:.3rem; color:var(--blue); font-size:.78rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
 .narrative span { color:var(--muted); }
+.background-logos { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; max-width:390px; margin-top:1.75rem; }
+.background-logos a { display:grid; min-height:62px; place-items:center; padding:.55rem .75rem; border:1px solid var(--line); border-radius:10px; background:#fff; }
+.background-logos img { display:block; width:100%; height:38px; object-fit:contain; mix-blend-mode:multiply; filter:grayscale(1); opacity:.82; transition:filter .2s ease,opacity .2s ease,transform .2s ease; }
+.background-logos a:hover img,.background-logos a:focus-visible img { filter:grayscale(0); opacity:1; transform:scale(1.03); }
 .background-journey { position:relative; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; margin-top:3rem; }
 .background-journey::before { position:absolute; top:1.25rem; right:10%; left:10%; height:2px; background:#a8c6dd; content:""; }
 .background-journey article { position:relative; padding:2.45rem 1rem 1rem; border:1px solid var(--line); border-radius:14px; background:#fff; }
