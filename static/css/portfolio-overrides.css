@@ -64,7 +64,7 @@ h3 { margin-bottom:.65rem; font-size:1.22rem; letter-spacing:-.025em; line-heigh
 .narrative article { padding:1.2rem 0; border-bottom:1px solid var(--line); }
 .narrative p { margin-bottom:.3rem; color:var(--blue); font-size:.78rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
 .narrative span { color:var(--muted); }
-.narrative-employer-mark { display:inline-flex; width:94px; height:28px; vertical-align:middle; align-items:center; margin:-.2rem 0 0 .2rem; padding:.18rem .35rem; border:1px solid var(--line); border-radius:7px; background:#fff; }
+.narrative-employer-mark { display:inline-flex; width:94px; height:28px; vertical-align:-.45em; align-items:center; margin:0 0 0 .2rem; padding:.18rem .35rem; border:1px solid var(--line); border-radius:7px; background:#fff; }
 .narrative-employer-mark img { display:block; width:100%; height:100%; object-fit:contain; mix-blend-mode:multiply; filter:grayscale(1); opacity:.82; transition:filter .2s ease,opacity .2s ease,transform .2s ease; }
 .narrative-employer-mark:hover img,.narrative-employer-mark:focus-visible img { filter:grayscale(0); opacity:1; transform:scale(1.03); }
 .background-logos { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.65rem; max-width:560px; margin-top:1.1rem; }
