@@ -9,6 +9,50 @@
       element.textContent = String(new Date().getFullYear());
     });
 
+    // Publication cards are written as editorial content, while their author
+    // metadata is maintained in one structured source. Render that metadata
+    // consistently, including Guillaume's highlighted author name.
+    const publicationSummaries = document.querySelectorAll('.publications-shell .reference-title');
+    if (publicationSummaries.length) {
+      const normaliseTitle = (value) => value
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/[’']/g, "'").replace(/[^a-z0-9]+/gi, ' ').trim().toLowerCase();
+      const authorsByTitle = new Map([
+        [normaliseTitle("From road traffic to virtual air quality sensors: An integrated mesoscopic modelling framework"), ['Guillaume Sabiron', 'Stéphane Jay', 'Léo Agelas', 'Elliot Speirs', 'Guoxi Feng', 'Suzanne Bussod']],
+        [normaliseTitle('Assessment of urban air quality using the SIRANE dispersion model and a new method for estimating traffic emissions'), ['Chi Vuong Nguyen', 'Lionel Soulhac', 'Perrine Charvolin', 'Guillaume Sabiron']],
+        [normaliseTitle('Vehicle fleet modelling methodology and prospective impact on local air quality: A practical application in France'), ['Guillaume Sabiron', 'Guoxi Feng']],
+        [normaliseTitle('A Multi-resolution Mobility-aware Framework for Dynamic Air Pollution Exposure Assessment'), ['Bassel Othman', 'Guillaume Sabiron']],
+      ]);
+      const setAuthors = (summary, authors) => {
+        if (!authors?.length || summary.querySelector('.reference-authors')) return;
+        const line = document.createElement('span');
+        line.className = 'reference-authors';
+        authors.forEach((author, index) => {
+          if (index) line.append(', ');
+          const item = document.createElement(author === 'Guillaume Sabiron' ? 'strong' : 'span');
+          item.textContent = author;
+          line.append(item);
+        });
+        summary.append(line);
+      };
+      fetch('/static/data/papers_data.json', { cache: 'no-cache' })
+        .then((response) => response.ok ? response.json() : Promise.reject(new Error('Publication metadata unavailable')))
+        .then((data) => {
+          (data.papers || []).forEach((paper) => {
+            const title = paper?.bib?.title;
+            const authors = paper?.bib?.author;
+            if (title && authors) authorsByTitle.set(normaliseTitle(title), authors.split(' and ').map((author) => author.trim()));
+          });
+          publicationSummaries.forEach((summary) => {
+            const title = summary.childNodes[0]?.nodeValue || summary.textContent;
+            setAuthors(summary, authorsByTitle.get(normaliseTitle(title)));
+          });
+        })
+        // The card itself remains fully usable if a privacy extension blocks
+        // a local fetch; authors embedded in manually curated cards stay shown.
+        .catch(() => {});
+    }
+
     const savedScroll = sessionStorage.getItem('portfolio-language-scroll');
     if (savedScroll && !window.location.hash) {
       sessionStorage.removeItem('portfolio-language-scroll');
