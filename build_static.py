@@ -4,6 +4,7 @@ import shutil
 from pathlib import Path
 
 from main import app
+from scripts.generate_ieee_bibliography import write_bibliography
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent
@@ -43,6 +44,8 @@ def _static_links(html: str, language: str, depth: int) -> str:
 
 
 def build_static_site() -> Path:
+    # Keep the downloadable bibliography in sync with the portfolio source.
+    write_bibliography()
     with app.test_client() as client:
         rendered_en = _static_links(_render_page(client, "/", "en", "static/", {}), "en", 0)
         rendered_fr = _static_links(_render_page(client, "/", "fr", "../static/", {}), "fr", 1)

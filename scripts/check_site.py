@@ -89,6 +89,7 @@ def main() -> int:
     required_assets = [
         root / "static" / "documents" / "guillaume-sabiron-cv-en.pdf",
         root / "static" / "documents" / "guillaume-sabiron-cv-fr.pdf",
+        root / "static" / "documents" / "guillaume-sabiron-publications-patents-ieee.txt",
         root / "static" / "img" / "projects" / "planetair-project.avif",
         root / "static" / "img" / "projects" / "geco-air-project.avif",
         root / "static" / "img" / "projects" / "wec-control-project.avif",
