@@ -25,6 +25,10 @@ __MACOSX/
 # --- Node build output ---
 dist/
 node_modules/
+playwright-report/
+test-results/
+.wrangler/
+.dev.vars
 
 # --- Data (optionnel : décommente si tu ne veux pas tout versionner) ---
 # data/*.html

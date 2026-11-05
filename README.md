@@ -56,6 +56,23 @@ To add a project, define its bilingual text, image alt text, public links and im
 
 GitHub Actions runs static checks and deploys GitHub Pages on pushes to `main`.
 
+## Automated quality and monitoring
+
+Install test dependencies with `npm ci` and browsers with
+`npx playwright install chromium webkit`, then run `npm run quality:full`.
+This checks internal links and anchors, SEO values, reciprocal language links,
+the sitemap, Worker request semantics, keyboard navigation, mobile layout and
+automatically detectable WCAG A/AA issues with axe. Chromium desktop/mobile and
+WebKit mobile are tested in both languages. Automated tests do not certify full
+accessibility or verify that an external publication link targets the right paper.
+
+GitHub Pages deployment now waits for this suite. A separate weekly Monday
+07:00 UTC run checks the repository; failures and browser reports are available
+in GitHub Actions. No test events are sent to production analytics or Formspree.
+
+See [monitoring setup](docs-monitoring.md) for daily visits, page views and CV
+requests. Updating the Cloudflare Worker is a separate deployment from Pages.
+
 ## Search engines
 
 The static build generates canonical URLs, reciprocal language alternatives, `sitemap.xml`, `robots.txt` and an Open Graph image. Submit `https://guillaumesabiron.github.io/sitemap.xml` in [Google Search Console](https://search.google.com/search-console/) and [Bing Webmaster Tools](https://www.bing.com/webmasters/), then validate the public home page with Google’s Rich Results Test. Do not add verification tokens to the repository unless they are issued for this domain.

@@ -5,6 +5,13 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build-static-site.mjs",
-    "quality": "sh scripts/quality.sh"
+    "quality": "sh scripts/quality.sh",
+    "test:worker": "node --test tests/worker.test.mjs",
+    "test:browser": "playwright test",
+    "quality:full": "npm run quality && npm run test:worker && npm run test:browser"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1"
   }
 }

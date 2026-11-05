@@ -11,4 +11,5 @@ fi
 "$PYTHON" -m compileall main.py build_static.py site_content.py utils scripts
 "$PYTHON" build_static.py
 "$PYTHON" scripts/check_site.py
+"$PYTHON" scripts/check_integrity.py
 npm run build
