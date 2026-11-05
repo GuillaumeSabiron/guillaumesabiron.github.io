@@ -31,8 +31,10 @@ Deploy `workers/cv-download-tracker/src/index.js` to the **existing** Worker
 The website URL stays unchanged. Publishing the website does NOT publish the
 Worker: it has its own deployment.
 
-In the Analytics Engine SQL query surface available in your Cloudflare account,
-run `workers/cv-download-tracker/daily-requests.sql`. It returns UTC date,
+Open **Storage & databases → Analytics Engine**, click the dataset
+`guillaume_sabiron_cv_downloads` to open **Studio**, and run
+`workers/cv-download-tracker/daily-requests.sql`. This path and the query were
+verified in this account on 5 November 2026. It returns UTC date,
 language and weighted request count. Use a daily chart split by `cv_language`.
 If the account UI does not expose SQL querying, use Cloudflare's SQL API or a
 private Grafana dashboard; do not claim a dashboard exists merely because a
@@ -53,6 +55,13 @@ dashboard joining Web Analytics GraphQL data and Analytics Engine SQL results.
 It needs account access and scoped read credentials. Never put those credentials
 or a public analytics endpoint in GitHub Pages. Until that private view is
 configured, use the two native views with aligned UTC date ranges.
+
+On 5 November 2026, the updated Worker version `4576591e` was activated in
+Cloudflare. HEAD checks confirmed the correct FR/EN redirects and `no-store`
+headers. The daily request query executed successfully in Studio with no new
+events; no production test events were fabricated. The native Web Analytics
+report showed no observed audience data over the selected last-30-days period.
+That is not proof of zero human visitors (blocking and collection limits apply).
 
 ## Validation checklist
 
