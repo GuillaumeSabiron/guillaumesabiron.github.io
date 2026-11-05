@@ -1,6 +1,6 @@
 Guillaume Sabiron — Publications and patent portfolio
 IEEE-style text export
-Generated from the public portfolio on 2026-08-24.
+Generated from the public portfolio on 2026-11-05.
 
 PUBLICATIONS
 [1] G. Sabiron, G. De Nunzio, N. Pernet, A. El Feki, and S. Bussod, “Source Apportionment of Pollutant Emissions with PLANET’AIR: A Digital Platform for Enhanced Air Quality Decision-Making,” in EARPA Form Forum 2025, SpringerBriefs in Applied Sciences and Technology, pp. 93–109, 2027, doi: 10.1007/978-3-032-28319-1_7. [Online]. Available: https://doi.org/10.1007/978-3-032-28319-1_7
