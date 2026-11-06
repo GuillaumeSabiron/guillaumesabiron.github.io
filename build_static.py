@@ -104,7 +104,9 @@ def build_static_site() -> Path:
     (french_privacy_dir / "index.html").write_text(privacy_fr, encoding="utf-8")
     (OUTPUT_DIR / "robots.txt").write_text("User-agent: *\nAllow: /\nSitemap: https://guillaumesabiron.github.io/sitemap.xml\n", encoding="utf-8")
     pages = ["", "fr/", "skills/", "fr/skills/", "publications/", "fr/publications/", "privacy/", "fr/privacy/"]
-    sitemap_urls = "\n".join(f"  <url><loc>https://guillaumesabiron.github.io/{page}</loc></url>" for page in pages)
+    urls = [f"https://guillaumesabiron.github.io/{page}" for page in pages]
+    (OUTPUT_DIR / "sitemap.txt").write_text("\n".join(urls) + "\n", encoding="utf-8")
+    sitemap_urls = "\n".join(f"  <url><loc>{url}</loc></url>" for url in urls)
     (OUTPUT_DIR / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{sitemap_urls}\n</urlset>\n', encoding="utf-8")
 
     return OUTPUT_DIR

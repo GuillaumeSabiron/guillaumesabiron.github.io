@@ -86,6 +86,9 @@ def main():
     expected = {ORIGIN + "/" + p.relative_to(ROOT).as_posix().removesuffix("index.html") for p in pages if p.name == "index.html"}
     if set(urls) != expected or len(urls) != len(set(urls)):
         errors.append("sitemap: missing, duplicate or unexpected URLs")
+    text_sitemap = ROOT / "sitemap.txt"
+    if not text_sitemap.is_file() or text_sitemap.read_text(encoding="utf-8").splitlines() != urls:
+        errors.append("sitemap.txt: must list the same URLs as sitemap.xml, one per line")
     if errors:
         print("Integrity checks failed:\n- " + "\n- ".join(errors))
         return 1
